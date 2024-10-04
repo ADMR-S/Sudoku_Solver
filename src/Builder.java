@@ -9,10 +9,10 @@ public class Builder{
         this.input = input;
     }
 
-    public Grid build(){ //Fonction principale qui crée la grille à partir du Scanner
+    public Grid build(){ //Fonction principale qui crée la grille complète à partir du Scanner
         Grid grid = new Grid();
 
-        //BUILDER Brute force :
+        //Build the lines of the grid first (Encapsuler dans une sous-fonction ?) :
         for (int i = 0; i < 9; i++) {
             if (input.hasNextLine()) {
                 String[] ligneCourante = input.nextLine().split(",");
@@ -76,6 +76,8 @@ public class Builder{
     }
 
     public void buildSquaresKnowingLines(Grid grid){
+        //Fonction qui construit toutes les carrés de la grille à partir des lignes
+        // Part d'en haut à gauche et va vers en bas à droite (1 = en haut à gauche, 2 = en haut au milieu etc...)
         for (int i=0; i<9; i++){
             Square currentSquare = new Square();
             int resteI = i/3;
