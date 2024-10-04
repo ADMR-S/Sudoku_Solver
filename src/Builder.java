@@ -9,23 +9,36 @@ public class Builder{
         this.input = input;
     }
 
-    public int[][] build(){
-        int[][] tab = new int[9][9];
+    public Grid build(){
+        CellBase[][] tab = new CellBase[9][9];
+        Grid grid = new Grid();
 
         //BUILDER Brute force :
         for (int i = 0; i < 9; i++) {
             if (input.hasNextLine()) {
-                String[] ligne = input.nextLine().split(",");
-                if(ligne.length != 9){
+                String[] ligneCourante = input.nextLine().split(",");
+                Line newLine = new Line();
+                if(ligneCourante.length != 9){
                     //Créer une exception à appeler en cas d'erreur d'input ?
                     System.err.println("\nERREUR\n" +
                             "Le format d'entrée doit être 9 lignes successives de la forme\n" +
-                            "1,2,3,4,0,6,7,8,9  où 0 représente une absence de chiffre");
+                            "1,2,3,4,0,6,7,8,9  (par exemple) où 0 représente une absence de chiffre");
                     System.exit(1);
                 }
                 for (int j = 0; j < 9; j++) {
-                    tab[i][j] = Integer.parseInt(ligne[j]);
+                    int valeurCourante = Integer.parseInt(ligneCourante[j]);
+                    CellBase newCell;
+
+                    if (valeurCourante == 0){ //Si la case est vide
+                        newCell = createEmptyCell(i, j);
+                    }
+                    else{ //Si la case contient une valeur
+                        newCell = new Cell(i, j, valeurCourante);
+                    }
+                    newLine.setTableCell(newCell, j);
+                    tab[i][j] = newCell;
                 }
+                grid.setLineValue(newLine, i);
             }
             else {
                 System.err.println("\nERREUR\n" +
@@ -34,7 +47,7 @@ public class Builder{
                 System.exit(1);
             }
         }
-        return tab;
+        return grid;
     }
 
     public EmptyCell createEmptyCell(int x, int y){

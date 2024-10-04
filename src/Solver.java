@@ -14,13 +14,15 @@ public class Solver {
 
         //BUILD
         Builder builder = new Builder(sc);
-        int[][] tab = builder.build();
+        Grid grid = builder.build();
 
         //Mettre cette boucle dans une classe Printer ? ou overkill?
         // (Peut-être utile quand on aura les classes lignes, colonnes etc...)
         for(int i=0; i<9; i++){
             for(int j=0; j<9; j++){
-                System.out.print(tab[i][j]);
+                if(grid.getLines()[i].getTable()[j] instanceof Cell){
+                    System.out.print(((Cell) grid.getLines()[i].getTable()[j]).getValue());
+                }
             }
             System.out.println("");
         }
