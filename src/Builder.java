@@ -9,7 +9,7 @@ public class Builder{
         this.input = input;
     }
 
-    public Grid build(){ //Fonction principale qui crée la grille complète à partir du Scanner
+    public Grid buildGrid(){ //Fonction principale qui crée la grille complète à partir du Scanner
         Grid grid = new Grid();
 
         //Build the lines of the grid first (Encapsuler dans une sous-fonction ?) :
@@ -23,7 +23,7 @@ public class Builder{
                             "1,2,3,4,0,6,7,8,9  (par exemple) où 0 représente une absence de chiffre");
                     System.exit(1);
                 }
-                Line newLine = buildLineFromStringArray(ligneCourante, i);
+                Line newLine = buildLineFromStringArray(ligneCourante, i, grid); //Envisager de trouver comment actualiser cellsToFill sans passer la grille en argument
                 grid.setLineValue(newLine, i);
             }
             else {
@@ -44,7 +44,8 @@ public class Builder{
         return cell;
     }
 
-    public Line buildLineFromStringArray(String[] ligneCourante, int ypos){ //Fonction qui permet de construire une ligne de grille
+    public Line buildLineFromStringArray(String[] ligneCourante, int ypos, Grid grid){ //Fonction qui permet de construire une ligne de grille
+        //On prend la grille en argument pour actualiser son champ cellsToFill
         Line newLine = new Line();
 
         for (int j = 0; j < 9; j++) {
@@ -57,6 +58,7 @@ public class Builder{
             }
             else{ //Si la case contient une valeur
                 newCell = new Cell(ypos, j, valeurCourante);
+                grid.setCellsToFill(grid.getCellsToFill() - 1);
             }
             newLine.setTableCell(newCell, j);
         }
@@ -78,6 +80,8 @@ public class Builder{
     public void buildSquaresKnowingLines(Grid grid){
         //Fonction qui construit toutes les carrés de la grille à partir des lignes
         // Part d'en haut à gauche et va vers en bas à droite (1 = en haut à gauche, 2 = en haut au milieu etc...)
+        Line[] lines = grid.getLines();
+
         for (int i=0; i<9; i++){
             Square currentSquare = new Square();
             int resteI = i/3;
@@ -87,13 +91,13 @@ public class Builder{
                 
                 switch(resteJ){
                     case 0 :
-                        currentSquare.setTableCell(grid.getLines()[3*resteI].getTable()[j%3+3*(i%3)], j);
+                        currentSquare.setTableCell(lines[3*resteI].getTable()[j%3+3*(i%3)], j);
                         break;
                     case 1 :
-                        currentSquare.setTableCell(grid.getLines()[3*resteI+1].getTable()[j%3+3*(i%3)], j);
+                        currentSquare.setTableCell(lines[3*resteI+1].getTable()[j%3+3*(i%3)], j);
                         break;
                     case 2 :
-                        currentSquare.setTableCell(grid.getLines()[3*resteI+2].getTable()[j%3+3*(i%3)], j);
+                        currentSquare.setTableCell(lines[3*resteI+2].getTable()[j%3+3*(i%3)], j);
                         break;
                 }
             }

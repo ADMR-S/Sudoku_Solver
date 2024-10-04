@@ -5,6 +5,7 @@ public class Grid{
     private Line[] lines;
     private Column[] columns;
     private Square[] squares;
+    private int cellsToFill;
 
     public Grid() {
         Line[] lignes = new Line[9];
@@ -13,6 +14,7 @@ public class Grid{
         this.lines = lignes;
         this.columns = columns;
         this.squares = squares;
+        this.cellsToFill = 81;
     }
 
     public Line[] getLines() {
@@ -46,5 +48,13 @@ public class Grid{
     }
     public void setSquareValue(Square square, int index) { // pour set la valeur d'une ligne
         this.squares[index] = square;
+    }
+
+    public int getCellsToFill() {
+        return cellsToFill;
+    }
+
+    public void setCellsToFill(int cellsToFill) {
+        this.cellsToFill = cellsToFill;
     }
 }

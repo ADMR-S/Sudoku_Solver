@@ -8,15 +8,31 @@ import Composite.*;
 
 public class Solver {
 
+    //Transformer en singleton
+    private int cellsToFill ;
+    private Grid grid ;
+
     public static void main(String[] args) {
+
+        Solver solver = new Solver();
 
         Scanner sc = new Scanner(System.in);
 
         //BUILD
         Builder builder = new Builder(sc);
-        Grid grid = builder.build();
+        solver.grid = builder.buildGrid();
 
-        //Mettre cette boucle dans une classe Printer ? ou overkill?
+        System.out.println("\nCells to fill " + solver.grid.getCellsToFill());
+
+        //BOUCLE "Chain of responsibility" ? :
+
+        while(solver.grid.getCellsToFill() != 0){
+            //Ne pas oublier de vérifier l'entrée de l'utilisateur avant de diminiuer cellsToFill si saisie manuelle
+
+        }
+/*
+        //PRINT
+        // Mettre cette boucle dans une classe Printer ? ou overkill?
         // (Peut-être utile quand on aura les classes lignes, colonnes etc...)
         System.out.println("\nLignes :\n");
         for(int i=0; i<9; i++){
@@ -45,6 +61,8 @@ public class Solver {
             }
             System.out.println("");
         }
+
+ */
 
     }
 }
