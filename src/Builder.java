@@ -34,6 +34,7 @@ public class Builder{
             }
         }
         buildColumnsKnowingLines(grid);
+        buildSquaresKnowingLines(grid);
         return grid;
     }
 
@@ -71,6 +72,30 @@ public class Builder{
                 currentColumn.setTableCell(lines[j].getTable()[i], j);
             }
             grid.setColumnValue(currentColumn, i);
+        }
+    }
+
+    public void buildSquaresKnowingLines(Grid grid){
+        for (int i=0; i<9; i++){
+            Square currentSquare = new Square();
+            int resteI = i/3;
+            
+            for(int j=0; j<9; j++){
+                int resteJ = j/3;
+                
+                switch(resteJ){
+                    case 0 :
+                        currentSquare.setTableCell(grid.getLines()[3*resteI].getTable()[j%3+3*(i%3)], j);
+                        break;
+                    case 1 :
+                        currentSquare.setTableCell(grid.getLines()[3*resteI+1].getTable()[j%3+3*(i%3)], j);
+                        break;
+                    case 2 :
+                        currentSquare.setTableCell(grid.getLines()[3*resteI+2].getTable()[j%3+3*(i%3)], j);
+                        break;
+                }
+            }
+            grid.setSquareValue(currentSquare, i);
         }
     }
 }

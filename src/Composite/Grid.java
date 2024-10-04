@@ -44,4 +44,7 @@ public class Grid{
     public void setSquares(Square[] squares) {
         this.squares = squares;
     }
+    public void setSquareValue(Square square, int index) { // pour set la valeur d'une ligne
+        this.squares[index] = square;
+    }
 }
