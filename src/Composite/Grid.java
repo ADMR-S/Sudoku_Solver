@@ -33,6 +33,9 @@ public class Grid{
     public void setColumns(Column[] columns) {
         this.columns = columns;
     }
+    public void setColumnValue(Column column, int index) { // pour set la valeur d'une ligne
+        this.columns[index] = column;
+    }
 
     public Square[] getSquares() {
         return squares;
