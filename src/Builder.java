@@ -1,9 +1,9 @@
+import composite.*;
 import java.util.Scanner;
-import Composite.*;
 
 public class Builder{
 
-    private Scanner input;
+    private final Scanner input;
 
     public Builder (Scanner input){
         this.input = input;
@@ -18,18 +18,22 @@ public class Builder{
                 String[] ligneCourante = input.nextLine().split(",");
                 if(ligneCourante.length != 9){
                     //Créer une exception à appeler en cas d'erreur d'input ?
-                    System.err.println("\nERREUR\n" +
-                            "Le format d'entrée doit être 9 lignes successives de la forme\n" +
-                            "1,2,3,4,0,6,7,8,9  (par exemple) où 0 représente une absence de chiffre");
+                    System.err.println("""
+                                        
+                                        ERREUR
+                                        Le format d'entr\u00e9e doit \u00eatre 9 lignes successives de la forme
+                                        1,2,3,4,0,6,7,8,9  (par exemple) o\u00f9 0 repr\u00e9sente une absence de chiffre""");
                     System.exit(1);
                 }
                 Line newLine = buildLineFromStringArray(ligneCourante, i, grid); //Envisager de trouver comment actualiser cellsToFill sans passer la grille en argument
                 grid.setLineValue(newLine, i);
             }
             else {
-                System.err.println("\nERREUR\n" +
-                        "Le format d'entrée doit être 9 lignes successives de la forme\n" +
-                        "1,2,3,4,0,6,7,8,9  où 0 représente une absence de chiffre");
+                System.err.println("""
+
+                                    ERREUR
+                                    Le format d'entr\u00e9e doit \u00eatre 9 lignes successives de la forme
+                                    1,2,3,4,0,6,7,8,9  o\u00f9 0 repr\u00e9sente une absence de chiffre""");
                 System.exit(1);
             }
         }
@@ -38,11 +42,6 @@ public class Builder{
         return grid;
     }
 
-    public EmptyCell createEmptyCell(int x, int y){ //Possibilité de déplacer dans le constructeur de EmptyCell
-        int[] possibleValues = new int[]{1,2,3,4,5,6,7,8,9};
-        EmptyCell cell = new EmptyCell(x, y, possibleValues);
-        return cell;
-    }
 
     public Line buildLineFromStringArray(String[] ligneCourante, int ypos, Grid grid){ //Fonction qui permet de construire une ligne de grille
         //On prend la grille en argument pour actualiser son champ cellsToFill
@@ -54,7 +53,7 @@ public class Builder{
             CellBase newCell;
 
             if (valeurCourante == 0){ //Si la case est vide
-                newCell = createEmptyCell(ypos, j);
+                newCell = new EmptyCell(ypos, j);
             }
             else{ //Si la case contient une valeur
                 newCell = new Cell(ypos, j, valeurCourante);
@@ -88,18 +87,7 @@ public class Builder{
             
             for(int j=0; j<9; j++){
                 int resteJ = j/3;
-                
-                switch(resteJ){
-                    case 0 :
-                        currentSquare.setTableCell(lines[3*resteI].getTable()[j%3+3*(i%3)], j);
-                        break;
-                    case 1 :
-                        currentSquare.setTableCell(lines[3*resteI+1].getTable()[j%3+3*(i%3)], j);
-                        break;
-                    case 2 :
-                        currentSquare.setTableCell(lines[3*resteI+2].getTable()[j%3+3*(i%3)], j);
-                        break;
-                }
+                currentSquare.setTableCell(lines[3*resteI+resteJ].getTable()[j%3+3*(i%3)], j);
             }
             grid.setSquareValue(currentSquare, i);
         }
