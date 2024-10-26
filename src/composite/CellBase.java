@@ -21,4 +21,7 @@ public abstract class CellBase{
     public void setYpos(int ypos) {
         this.ypos = ypos;
     }
+    public boolean  checkPossibleValue(int i) {
+        return false;
+    }
 }

@@ -12,11 +12,20 @@ public class EmptyCell extends CellBase{
     public int[] getPossibleValues() {
         return possibleValues;
     }
+    public boolean  checkPossibleValue(int i) {
+        return this.possibleValues[i-1] == i;
+    }
     public void setPossibleValues(int[] possibleValues) {
         this.possibleValues = possibleValues;
     }
     public void removePossibleValue( int v) {
         possibleValues[v-1] = 0;
     }
-
+    public int numberPossibleValue() {
+        int n = 0;
+        for (int elt : this.possibleValues) {
+            if (elt != 0) {n++;}
+        }
+        return n;
+    }
 }
