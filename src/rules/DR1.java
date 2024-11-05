@@ -2,7 +2,7 @@ package rules;
 import composite.*;
 
 public class DR1 extends DeductionRule {
-    public void execut(CellBase c, Grid g){
+    public boolean execut(CellBase c, Grid g){
         if (c instanceof EmptyCell cell) {
             int[] p = cell.getPossibleValues();
             int value = 0;
@@ -10,15 +10,18 @@ public class DR1 extends DeductionRule {
                 if (p[i] != 0 && value == 0) {
                     value = p[i];
                 } else if (p[i] != 0) {
-                    return;
+                    return false;
                 }
             }
             if (value != 0) {
-                Cell c_new = new Cell(cell.getXpos(), cell.getXpos(), value);
+                System.out.println("Nouvelle cellule en " + cell.getXpos() + " " + cell.getYpos() + " avec la valeur " + value);
+                Cell c_new = new Cell(cell.getXpos(), cell.getYpos(), value);
                 DR0 r = new DR0();
                 r.execut(c_new, g);
-                // Modifier la ligne, colonne et square associé (ça serait plus simple dans DR0)
+                g.set(c_new, cell.getXpos(), cell.getYpos());
+                return true;
             }
         }
+        return false;
     }
 }

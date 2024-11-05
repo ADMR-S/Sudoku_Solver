@@ -2,8 +2,7 @@ package rules;
 import composite.*;
 
 public class DR2 extends DeductionRule{
-    @Override
-    public void execut(CellBase c_in, Grid g) {
+    public boolean execut(CellBase c_in, Grid g) {
         if (c_in instanceof EmptyCell cell) {
             int x = cell.getXpos();
             int y = cell.getYpos();
@@ -31,10 +30,13 @@ public class DR2 extends DeductionRule{
                         Cell c_new = new Cell(cell.getXpos(), cell.getXpos(), elt);
                         DR0 r = new DR0();
                         r.execut(c_new, g);
+                        return true;
                         // Modifier la ligne, colonne et square associé (ça serait plus simple dans DR0)
                     }
+                    return false;
                 }
             }
         }
+        return false;
     }
 }

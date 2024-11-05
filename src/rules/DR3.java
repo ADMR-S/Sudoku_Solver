@@ -1,10 +1,10 @@
 package rules;
 import composite.*;
 import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class DR3 extends DeductionRule{
-    @Override
-    public void execut(CellBase c_in, Grid g) {
+    public boolean execut(CellBase c_in, Grid g) {/*
         if (c_in instanceof EmptyCell cell) {
             int x = cell.getXpos();
             int y = cell.getYpos();
@@ -37,6 +37,7 @@ public class DR3 extends DeductionRule{
                     // Modifier la ligne, colonne et square associé (ça serait plus simple dans DR0)
                 } 
             }
-        }
+        }*/
+        return false;
     }
 }

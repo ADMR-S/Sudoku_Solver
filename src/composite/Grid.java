@@ -14,6 +14,16 @@ public class Grid{
         this.cellsToFill = 81;
     }
 
+    public CellBase get(int x, int y) {
+        return this.lines[y].get(x);
+    }
+
+    public void set(CellBase cell, int x, int y) {
+        this.lines[y].setTableCell(cell, x);
+        this.columns[x].setTableCell(cell, y);
+        this.squares[x/3 + (y/3)*3].setTableCell(cell, x%3 + (y%3)*3);
+    }
+
     public Line[] getLines() {
         return lines;
     }
@@ -84,7 +94,7 @@ public class Grid{
                 }
             }
             output = output.concat("\n");
-        }
+        }/*
         output = output.concat("\nColonnes :\n");
         for(int i=0; i<9; i++){
             for(int j=0; j<9; j++){
@@ -106,7 +116,7 @@ public class Grid{
                 }
             }
             output = output.concat("\n");
-        }
+        }*/
         return output;
     }
 }

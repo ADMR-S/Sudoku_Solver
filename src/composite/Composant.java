@@ -18,9 +18,7 @@ Obligé de déclarer la taille de table au dessus sinon NullPointerException à 
     public void setTable(CellBase[] table){
         this.table = table;
     }
-    public void setTableCell(CellBase cell, int index){ //Pour set la valeur d'une cellule
-        this.table[index] = cell;
-    }
+    public void setTableCell(CellBase cell, int index){this.table[index] = cell;}
     public CellBase get(int n) {
         return table[n];
     }

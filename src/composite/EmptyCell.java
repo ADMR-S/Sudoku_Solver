@@ -28,4 +28,8 @@ public class EmptyCell extends CellBase{
         }
         return n;
     }
+
+    public String toString() {
+        return "EmptyCell [xpos=" + getXpos() + ", ypos=" + getYpos() + ", possibleValues=" + java.util.Arrays.toString(possibleValues) + "]";
+    }
 }

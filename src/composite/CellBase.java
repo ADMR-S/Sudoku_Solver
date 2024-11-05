@@ -9,6 +9,7 @@ public abstract class CellBase{
         this.ypos = ypos;
     }
 
+    public int getValue(){return 0;}
     public int getXpos() {
         return xpos;
     }
@@ -23,5 +24,9 @@ public abstract class CellBase{
     }
     public boolean  checkPossibleValue(int i) {
         return false;
+    }
+
+    public String toString() {
+        return "CellBase [xpos=" + xpos + ", ypos=" + ypos + "]";
     }
 }

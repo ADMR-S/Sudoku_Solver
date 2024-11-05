@@ -5,7 +5,7 @@ import composite.*;
 //(ça serait probablement plus simple pour le builder et les règles).
 
 public class DR0 extends DeductionRule {
-    public void execut(CellBase c_in, Grid g) {
+    public boolean execut(CellBase c_in, Grid g) {
         if (c_in instanceof Cell cell) {
             Line l = g.getLine(cell.getYpos());
             Column c = g.getColumn(cell.getXpos());
@@ -21,6 +21,8 @@ public class DR0 extends DeductionRule {
                     empty_cell.removePossibleValue(cell.getValue());
                 }
             }
+            return true;
         }
+        return false;
     }
 }
