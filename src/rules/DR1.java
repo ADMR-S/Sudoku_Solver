@@ -19,6 +19,7 @@ public class DR1 extends DeductionRule {
                 DR0 r = new DR0();
                 r.execut(c_new, g);
                 g.set(c_new, cell.getXpos(), cell.getYpos());
+                g.setCellsToFill(g.getCellsToFill() - 1);
                 return true;
             }
         }

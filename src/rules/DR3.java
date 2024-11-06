@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class DR3 extends DeductionRule{
-    public boolean execut(CellBase c_in, Grid g) {/*
+    public boolean execut(CellBase c_in, Grid g) {
         if (c_in instanceof EmptyCell cell) {
             int x = cell.getXpos();
             int y = cell.getYpos();
@@ -13,31 +13,53 @@ public class DR3 extends DeductionRule{
             Square s = g.getSquare(x, y);
             int[] table = cell.getPossibleValues();
             if (cell.numberPossibleValue() == 2) {
-                boolean correct_line = false;
-                boolean correct_column = false;
-                boolean correct_square = false;
                 for (int i = 0 ;  i < 9 ; i++) {
-                    if (i != x && l.get(i) instanceof EmptyCell c_l) {
-                        if (Arrays.equals(table, c_l.getPossibleValues())) {
-
+                    if (l.get(i) instanceof EmptyCell elt) {
+                        if (elt.getXpos() != x) {
+                            if (Arrays.equals(elt.getPossibleValues(), table)) {
+                                for (int j = 0 ; j < 9 ; j++) {
+                                    if (l.get(j) instanceof EmptyCell elt2) {
+                                        if (elt2.getXpos() != x && elt2.getXpos() != elt.getXpos()) {
+                                            elt2.removePossibleValue(table[0]);
+                                            elt2.removePossibleValue(table[1]);
+                                        }
+                                    }
+                                }
+                            }
                         }
-                        correct_line = false;
                     }
-                    if (i != y && c.get(i).checkPossibleValue(elt)) {
-                        correct_column = false;
+                    if (c.get(i) instanceof EmptyCell elt) {
+                        if (elt.getYpos() != y) {
+                            if (Arrays.equals(elt.getPossibleValues(), table)) {
+                                for (int j = 0 ; j < 9 ; j++) {
+                                    if (c.get(j) instanceof EmptyCell elt2) {
+                                        if (elt2.getYpos() != y && elt2.getYpos() != elt.getYpos()) {
+                                            elt2.removePossibleValue(table[0]);
+                                            elt2.removePossibleValue(table[1]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                    if (s.get(i).getXpos() != x && s.get(i).getYpos() != y && s.get(i).checkPossibleValue(elt)) {
-                        correct_square = false;
+                    if (s.get(i) instanceof EmptyCell elt) {
+                        if (elt.getXpos() != x && elt.getYpos() != y) {
+                            if (Arrays.equals(elt.getPossibleValues(), table)) {
+                                for (int j = 0 ; j < 9 ; j++) {
+                                    if (s.get(j) instanceof EmptyCell elt2) {
+                                        if (elt2.getXpos() != x && elt2.getYpos() != y && elt2.getXpos() != elt.getXpos() && elt2.getYpos() != elt.getYpos()) {
+                                            elt2.removePossibleValue(table[0]);
+                                            elt2.removePossibleValue(table[1]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-                if (correct_column || correct_line || correct_square) {
-                    Cell c_new = new Cell(cell.getXpos(), cell.getXpos(), elt);
-                    DR0 r = new DR0();
-                    r.execut(c_new, g);
-                    // Modifier la ligne, colonne et square associé (ça serait plus simple dans DR0)
-                } 
+                return true;
             }
-        }*/
+        }
         return false;
     }
 }
