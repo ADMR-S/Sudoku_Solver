@@ -15,4 +15,8 @@ public class Cell extends CellBase{
     public void setValue(int value){
         this.value = value;
     }
+
+    public String toString() {
+        return "Cell [xpos=" + this.getXpos() + ", ypos=" + this.getYpos() + "] value : " + this.value;
+    }
 }

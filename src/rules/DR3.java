@@ -12,7 +12,20 @@ public class DR3 extends DeductionRule{
             Column c = g.getColumn(x);
             Square s = g.getSquare(x, y);
             int[] table = cell.getPossibleValues();
+            boolean change = false;
             if (cell.numberPossibleValue() == 2) {
+                int i_v1 = -1;
+                int i_v2 = -1;
+                for (int j = 0 ; j < 9 ; j++) {
+                    if (i_v1 == -1 && table[j] != 0) {
+                        i_v1 = j;
+                    } else if (table[j] != 0 ) {
+                        i_v2 = j;
+                    }
+                }
+                if (i_v1 == -1 || i_v2 == -1) {
+                    System.out.println("PROBLEME");
+                }
                 for (int i = 0 ;  i < 9 ; i++) {
                     if (l.get(i) instanceof EmptyCell elt) {
                         if (elt.getXpos() != x) {
@@ -20,8 +33,9 @@ public class DR3 extends DeductionRule{
                                 for (int j = 0 ; j < 9 ; j++) {
                                     if (l.get(j) instanceof EmptyCell elt2) {
                                         if (elt2.getXpos() != x && elt2.getXpos() != elt.getXpos()) {
-                                            elt2.removePossibleValue(table[0]);
-                                            elt2.removePossibleValue(table[1]);
+                                            if (elt2.checkPossibleValue(i_v1+1) || elt2.checkPossibleValue(i_v1+1)) {change =true;}
+                                            elt2.removePossibleValue(table[i_v1]);
+                                            elt2.removePossibleValue(table[i_v2]);
                                         }
                                     }
                                 }
@@ -34,8 +48,9 @@ public class DR3 extends DeductionRule{
                                 for (int j = 0 ; j < 9 ; j++) {
                                     if (c.get(j) instanceof EmptyCell elt2) {
                                         if (elt2.getYpos() != y && elt2.getYpos() != elt.getYpos()) {
-                                            elt2.removePossibleValue(table[0]);
-                                            elt2.removePossibleValue(table[1]);
+                                            if (elt2.checkPossibleValue(i_v1+1) || elt2.checkPossibleValue(i_v2+1)) {change =true;}
+                                            elt2.removePossibleValue(table[i_v1]);
+                                            elt2.removePossibleValue(table[i_v2]);
                                         }
                                     }
                                 }
@@ -43,13 +58,14 @@ public class DR3 extends DeductionRule{
                         }
                     }
                     if (s.get(i) instanceof EmptyCell elt) {
-                        if (elt.getXpos() != x && elt.getYpos() != y) {
+                        if (elt.getXpos() != x || elt.getYpos() != y) {
                             if (Arrays.equals(elt.getPossibleValues(), table)) {
                                 for (int j = 0 ; j < 9 ; j++) {
                                     if (s.get(j) instanceof EmptyCell elt2) {
-                                        if (elt2.getXpos() != x && elt2.getYpos() != y && elt2.getXpos() != elt.getXpos() && elt2.getYpos() != elt.getYpos()) {
-                                            elt2.removePossibleValue(table[0]);
-                                            elt2.removePossibleValue(table[1]);
+                                        if ((elt2.getXpos() != x || elt2.getYpos() != y) && (elt2.getXpos() != elt.getXpos() || elt2.getYpos() != elt.getYpos())) {
+                                            if (elt2.checkPossibleValue(i_v1+1) || elt2.checkPossibleValue(i_v2+1)) {change =true;}
+                                            elt2.removePossibleValue(table[i_v1]);
+                                            elt2.removePossibleValue(table[i_v2]);
                                         }
                                     }
                                 }
@@ -57,7 +73,7 @@ public class DR3 extends DeductionRule{
                         }
                     }
                 }
-                return true;
+                return change;
             }
         }
         return false;

@@ -10,30 +10,38 @@ public class DR2 extends DeductionRule{
             Column c = g.getColumn(x);
             Square s = g.getSquare(x, y);
             int[] table = cell.getPossibleValues();
-            for (int elt : table) {
-                if (elt != 0) {
+
+            for (int value : table) {
+                if (value != 0) {
                     boolean correct_line = true;
                     boolean correct_column = true;
                     boolean correct_square = true;
                     for (int i = 0 ;  i < 9 ; i++) {
-                        if (i != x && l.get(i).checkPossibleValue(elt)) {
-                            correct_line = false;
+                        if (l.get(i) instanceof EmptyCell emp_c){
+                            if (i != x && emp_c.checkPossibleValue(value)) {
+                                correct_line = false;
+                            }
                         }
-                        if (i != y && c.get(i).checkPossibleValue(elt)) {
-                            correct_column = false;
+                        if (c.get(i) instanceof EmptyCell emp_c) {
+                            if (i != y && emp_c.checkPossibleValue(value)) {
+                                correct_column = false;
+                            }
                         }
-                        if (s.get(i).getXpos() != x && s.get(i).getYpos() != y && s.get(i).checkPossibleValue(elt)) {
-                            correct_square = false;
+                        if (s.get(i) instanceof EmptyCell emp_c) {
+                            if ((emp_c.getXpos() != x || emp_c.getYpos() != y) && emp_c.checkPossibleValue(value)) {
+                                correct_square = false;
+                            }
                         }
                     }
-                    if (correct_column || correct_line || correct_square) {
-                        Cell c_new = new Cell(cell.getXpos(), cell.getXpos(), elt);
+                    if (correct_line || correct_column || correct_square) {
+                        System.out.println("Nouvelle cellule en " + x + " " + y + " avec la valeur " + value);
+                        Cell c_new = new Cell(x, y, value);
                         DR0 r = new DR0();
                         r.execut(c_new, g);
+                        g.set(c_new, x, y);
+                        g.setCellsToFill(g.getCellsToFill() - 1);
                         return true;
-                        // Modifier la ligne, colonne et square associé (ça serait plus simple dans DR0)
                     }
-                    return false;
                 }
             }
         }

@@ -15,9 +15,6 @@ public class EmptyCell extends CellBase{
     public boolean  checkPossibleValue(int i) {
         return this.possibleValues[i-1] == i;
     }
-    public void setPossibleValues(int[] possibleValues) {
-        this.possibleValues = possibleValues;
-    }
     public void removePossibleValue( int v) {
         possibleValues[v-1] = 0;
     }

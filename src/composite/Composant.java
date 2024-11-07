@@ -22,4 +22,12 @@ Obligé de déclarer la taille de table au dessus sinon NullPointerException à 
     public CellBase get(int n) {
         return table[n];
     }
+
+    public String toString() {
+        String res = "";
+        for (int i = 0; i<9;i++) {
+            res += this.table[i].getValue() + " ";
+        }
+        return res;
+    }
 }
