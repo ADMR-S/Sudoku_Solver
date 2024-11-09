@@ -1,4 +1,5 @@
 import composite.*;
+import rules.Context;
 import rules.DR0;
 import rules.DR1;
 import rules.DR2;
@@ -18,21 +19,22 @@ public class Solver {
     private int cellsToFill; // Plutôt une pile qu'un entier
 
     public static void main(String[] args) throws FileNotFoundException {
-
+        args = new String[]{"/home/florent/Documents/Master/Software_eng/Sudoku_Solver-main/ressources/grille_tres_difficile1.txt", "/home/florent/Documents/Master/Software_eng/Sudoku_Solver-main/ressources/grille_difficile2.txt"};
         try {
             for (int k = 0; k < args.length; k++) {//Chaque argument est un fichier .txt qui contient une grille
+                System.out.println("--------------------------------------");
                 System.out.println(args[k]);
-                final Scanner sc = new Scanner(new File(args[k]));
 
                 //BUILD
+
+                final Scanner sc = new Scanner(new File(args[k]));
                 Builder builder = new Builder(sc);
-
-                Solver solver = new Solver();
-
                 Grid grid = builder.buildGrid();
+                sc.close();
 
                 System.out.println("\nCells to fill " + grid.getCellsToFill());
                 System.out.println(grid);
+
                 //BOUCLE "Chain of responsibility" ? :
 
                 Context ctx = new Context(new DR0(), grid);
@@ -68,22 +70,24 @@ public class Solver {
                     continue;
                 }
 
+
                 System.out.println("TRES DIFFICILE.");
 
                 Memento memento = grid.makeSnapshot();
 
                 //Implémenter la demande à l'utilisateur.
                 Scanner saisie = new Scanner(System.in);
-
                 while (grid.getCellsToFill() > 0) {
 
                     System.out.println(grid);
 
+                    int x;
+                    int y;
                     System.out.println("Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
-                    int x = saisie.nextInt();
-                    int y = saisie.nextInt();
-                    while (grid.get(x, y).getValue() != 0) {
-                        System.out.println("Cette cellule n'est pas vide. Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
+                    x = Solver.getInt(saisie);
+                    y = Solver.getInt(saisie);
+                    while ((0 > x || x > 8) || (0 > y || y > 8) || grid.get(x, y).getValue() != 0) {
+                        System.out.println("Ces coordonnées ne corresponde pas à une cellule vide. Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
                         x = saisie.nextInt();
                         y = saisie.nextInt();
                     }
@@ -93,7 +97,7 @@ public class Solver {
                         System.out.println("Appuyez sur une touche pour recharger l'état de la grille avant la première saisie manuelle ou quittez le programme avec Ctrl+C.");
                         grid.restore(memento);
                         memento = grid.makeSnapshot(); //On refait une copie p
-                        saisie.next();// our le prochain reload
+                        saisie.next();// pour le prochain reload
                     }
                     else {
                         System.out.print("Les valeurs possible pour cette cellule sont : ");
@@ -104,10 +108,10 @@ public class Solver {
                         }
                         System.out.println();
                         System.out.println("Entrez la valeur que vous voulez mettre dans cette cellule : ");
-                        int value = saisie.nextInt();
+                        int value = Solver.getInt(saisie);
                         while (value < 1 || value > 9 || !grid.get(x, y).checkPossibleValue(value)) {
                             System.out.println("La valeur doit être comprise entre 1 et 9 et être une valeur possible pour la cellule. Entrez la valeur que vous voulez mettre dans cette cellule : ");
-                            value = saisie.nextInt();
+                            value = Solver.getInt(saisie);
                         }
 
                         Cell c_new = new Cell(x, y, value);
@@ -120,11 +124,10 @@ public class Solver {
                         ctx.solve();
                     }
                 }
+                saisie.close();
 
-
-                System.out.println(grid.getCellsToFill());
-                System.out.println("Sudoku résolu avec une difficulté très difficiles.");
                 System.out.println(grid);
+                System.out.println("Sudoku résolu avec une difficulté très difficiles.");
                 System.out.println("Grille valide : " + grid.checkValidity());
             }
             return;
@@ -137,6 +140,11 @@ public class Solver {
             e.printStackTrace();
         }
     }
-
-
+    private static int getInt(Scanner sc) {
+        while (!sc.hasNextInt()) {
+            System.out.println("Veuillez entrer un entier.");
+            sc.next();
+        }
+        return sc.nextInt();
+    }
 }

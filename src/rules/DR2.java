@@ -37,7 +37,7 @@ public class DR2 extends DeductionRule{
                         }
                     }
                     if (correct_line || correct_column || correct_square) {
-                        System.out.println("Nouvelle cellule en " + x + " " + y + " avec la valeur " + value);
+                        //System.out.println("Nouvelle cellule en " + x + " " + y + " avec la valeur " + value);
                         Cell c_new = new Cell(x, y, value);
                         DR0 r = new DR0();
                         r.execut(c_new, g);
@@ -59,10 +59,10 @@ public class DR2 extends DeductionRule{
             CellBase cell = pile.pop();
 
             if (dr1.execut(cell, grid)) {
-                System.out.println("DR1.");
+                //System.out.println("DR1.");
                 pile.pushAllRelated(cell, grid);
             } else if (execut(cell, grid)) {
-                System.out.println("DR2.");
+                //System.out.println("DR2.");
                 pile.pushAllRelated(cell, grid);
             }
         }

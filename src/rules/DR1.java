@@ -17,7 +17,7 @@ public class DR1 extends DeductionRule {
                 }
             }
             if (value != 0) {
-                System.out.println("Nouvelle cellule en " + cell.getXpos() + " " + cell.getYpos() + " avec la valeur " + value);
+                //System.out.println("Nouvelle cellule en " + cell.getXpos() + " " + cell.getYpos() + " avec la valeur " + value);
                 Cell c_new = new Cell(cell.getXpos(), cell.getYpos(), value);
                 DR0 r = new DR0();
                 r.execut(c_new, g);
@@ -35,7 +35,7 @@ public class DR1 extends DeductionRule {
             CellBase cell = pile.pop();
 
             if (execut(cell, grid)) {
-                System.out.println("DR1.");
+                //System.out.println("DR1.");
                 pile.pushAllRelated(cell, grid);
             }
         }

@@ -1,3 +1,4 @@
+package rules;
 import composite.*;
 import rules.*;
 import pile.Pile;
@@ -19,7 +20,7 @@ public class Context{
         this.strategy = strategy;
     }
 
-    void solve(){
+    public void solve(){
         Pile p;
         if (strategy instanceof DR0){
             p = new Pile(81-grid.getCellsToFill());

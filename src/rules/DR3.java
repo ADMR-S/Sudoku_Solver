@@ -91,13 +91,13 @@ public class DR3 extends DeductionRule{
             CellBase cell = pile.pop();
 
             if (execut(cell, grid)) {
-                System.out.println("DR3.");
+                //System.out.println("DR3.");
                 pile.pushAllRelated(cell, grid);
             } else if (dr1.execut(cell, grid)) {
-                System.out.println("DR1.");
+                //System.out.println("DR1.");
                 pile.pushAllRelated(cell, grid);
             } else if (dr2.execut(cell, grid)) {
-                System.out.println("DR2.");
+                //System.out.println("DR2.");
                 pile.pushAllRelated(cell, grid);
             }
         }

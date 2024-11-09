@@ -20,9 +20,6 @@ public class Grid{
         this.squares[x/3 + (y/3)*3].setTableCell(cell, x%3 + (y%3)*3);
     }
 
-    public Line[] getLines() {
-        return lines;
-    }
     public Line getLine(int i) {
         return lines[i];
     }
@@ -34,10 +31,6 @@ public class Grid{
         this.lines[index] = line;
     }
 
-    public Column[] getColumns() {
-        return columns;
-    }
-
     public Column getColumn(int i) {
         return columns[i];
     }
@@ -47,10 +40,6 @@ public class Grid{
     }
     public void setColumnValue(Column column, int index) { // pour set la valeur d'une ligne
         this.columns[index] = column;
-    }
-
-    public Square[] getSquares() {
-        return squares;
     }
 
     public Square getSquare(int x, int y) {
@@ -68,6 +57,7 @@ public class Grid{
     public void setSquares(Square[] squares) {
         this.squares = squares;
     }
+
     public void setSquareValue(Square square, int index) { // pour set la valeur d'une ligne
         this.squares[index] = square;
     }
@@ -89,7 +79,7 @@ public class Grid{
         output = output.concat("\nLignes :\n");
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (this.getLines()[i].getTable()[j] instanceof Cell cell) {
+                if (this.lines[i].getTable()[j] instanceof Cell cell) {
                     output = output.concat(Integer.toString(cell.getValue()));
                 } else {
                     output = output.concat(" ");
