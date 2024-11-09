@@ -111,11 +111,12 @@ public class Solver {
                         }
 
                         Cell c_new = new Cell(x, y, value);
-                        DR0 r = new DR0();
-                        r.execut(c_new, grid);
                         grid.set(c_new, x, y);
                         grid.setCellsToFill(grid.getCellsToFill() - 1);
+                        ctx.setStrategy(new DR0());
+                        ctx.solve(); //Actualise les cases qui doivent l'être par le nouvel ajout
 
+                        ctx.setStrategy(new DR3()); //On repasse sur la stratégie la plus forte
                         ctx.solve();
                     }
                 }
