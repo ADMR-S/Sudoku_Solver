@@ -3,7 +3,6 @@ package composite;
 public class EmptyCell extends CellBase{//Représente une cellule vide dont on ne connaît pas encore la valeur
     private int[] possibleValues;
 
-    //A tester
     public EmptyCell(int xpos, int ypos) {
         super(xpos, ypos);
         this.possibleValues =  new int[] {1,2,3,4,5,6,7,8,9};
@@ -31,9 +30,7 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
     }
     public EmptyCell getCopy(){
         EmptyCell emptyCellCopy = new EmptyCell(this.xpos, this.ypos);
-        for(int i =0; i<9; i++){
-            emptyCellCopy.possibleValues[i] = this.possibleValues[i];
-        }
+        System.arraycopy(this.possibleValues, 0, emptyCellCopy.possibleValues, 0, 9);
         return emptyCellCopy;
     }
 }

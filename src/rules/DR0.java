@@ -12,6 +12,7 @@ public class DR0 extends DeductionRule {
     des valeurs possibles des cellules de la même ligne/colonne/carré*/
     public boolean execut(CellBase c_in, Grid g) {
         if (c_in instanceof Cell cell) {
+            //Récupère la ligne/colonne/carré associée à la cellule.
             Line l = g.getLine(cell.getYpos());
             Column c = g.getColumn(cell.getXpos());
             Square s = g.getSquare(cell.getXpos(), cell.getYpos());

@@ -14,6 +14,7 @@ public class DR2 extends DeductionRule{
             Square s = g.getSquare(x, y);
             int[] table = cell.getPossibleValues();
 
+            //Pour toutes les valeurs de la cellule on vérifie si elle apparait autre part dans la ligne, colonne ou carré.
             for (int value : table) {
                 if (value != 0) {
                     boolean correct_line = true;
@@ -36,6 +37,7 @@ public class DR2 extends DeductionRule{
                             }
                         }
                     }
+                    // Si c'est la seul valeur possible dans la ligne/colonne/carré, on la set.
                     if (correct_line || correct_column || correct_square) {
                         //System.out.println("Nouvelle cellule en " + x + " " + y + " avec la valeur " + value);
                         Cell c_new = new Cell(x, y, value);

@@ -2,7 +2,7 @@ package composite;
 
 public class Cell extends CellBase{ //Représente une cellule dont la valeur est fixée
 
-    private int value;
+    private final int value;
 
     public Cell(int xpos, int ypos, int value){
         super(xpos, ypos);
@@ -12,15 +12,11 @@ public class Cell extends CellBase{ //Représente une cellule dont la valeur est
     public int getValue(){
         return this.value;
     }
-    public void setValue(int value){
-        this.value = value;
-    }
 
     public String toString() {
         return "Cell [xpos=" + this.getXpos() + ", ypos=" + this.getYpos() + "] value : " + this.value;
     }
     public Cell getCopy(){
-        Cell cellCopy = new Cell(this.xpos, this.ypos, this.value);
-        return cellCopy;
+        return new Cell(this.xpos, this.ypos, this.value);
     }
 }

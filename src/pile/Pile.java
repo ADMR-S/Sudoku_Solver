@@ -6,6 +6,7 @@ public class Pile {
     private CellBase[] stack;
     private int size;
     private int capacity;
+
     public Pile(int capacity) {
         this.capacity = capacity;
         this.stack = new CellBase[capacity];
@@ -26,7 +27,7 @@ public class Pile {
         }
 
         if (this.isFull()) {
-            System.out.println("Stack is full");
+            System.err.println("Stack is full");
             return;
         }
         this.stack[this.size++] = cell;

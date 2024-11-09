@@ -19,7 +19,6 @@ public class Solver {
     private int cellsToFill; // Plutôt une pile qu'un entier
 
     public static void main(String[] args) throws FileNotFoundException {
-        args = new String[]{"/home/florent/Documents/Master/Software_eng/Sudoku_Solver-main/ressources/grille_tres_difficile1.txt", "/home/florent/Documents/Master/Software_eng/Sudoku_Solver-main/ressources/grille_difficile2.txt"};
         try {
             for (int k = 0; k < args.length; k++) {//Chaque argument est un fichier .txt qui contient une grille
                 System.out.println("--------------------------------------");

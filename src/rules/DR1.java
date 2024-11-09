@@ -3,12 +3,14 @@ import composite.*;
 import pile.Pile;
 
 public class DR1 extends DeductionRule {
-    //SINGLETONS NUS : Seule valeur possible restante dans la cellule
-    //https://sudoku.com/fr/regles-du-sudoku/singletons-nus/
+    // SINGLETONS NUS : Seule valeur possible restante dans la cellule
+    // https://sudoku.com/fr/regles-du-sudoku/singletons-nus/
+
     public boolean execut(CellBase c, Grid g){
         if (c instanceof EmptyCell cell) {
             int[] p = cell.getPossibleValues();
             int value = 0;
+            // On vérifie qu'il ne reste qu'une valeur et on la récupère.
             for (int i=0; i < p.length ; i++) {
                 if (p[i] != 0 && value == 0) {
                     value = p[i];

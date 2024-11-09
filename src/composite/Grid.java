@@ -76,7 +76,7 @@ public class Grid{
         //PRINT
         // Mettre cette boucle dans une classe Printer ? ou overkill?
         // (Peut-être utile quand on aura les classes lignes, colonnes etc...)
-        output = output.concat("\nLignes :\n");
+        output = output.concat("\nGrid :\n");
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (this.lines[i].getTable()[j] instanceof Cell cell) {
@@ -86,29 +86,7 @@ public class Grid{
                 }
             }
             output = output.concat("\n");
-        }/*
-        output = output.concat("\nColonnes :\n");
-        for(int i=0; i<9; i++){
-            for(int j=0; j<9; j++){
-                if(this.getColumns()[i].getTable()[j] instanceof Cell cell){
-                    output = output.concat(Integer.toString(cell.getValue()));
-                } else {
-                    output = output.concat(" ");
-                }
-            }
-            output = output.concat("\n");
         }
-        output = output.concat("\nSquares :\n");
-        for(int i=0; i<9; i++){
-            for(int j=0; j<9; j++){
-                if(this.getSquares()[i].getTable()[j] instanceof Cell cell){
-                    output = output.concat(Integer.toString(cell.getValue()));
-                } else {
-                    output = output.concat(" ");
-                }
-            }
-            output = output.concat("\n");
-        }*/
         return output;
     }
 
