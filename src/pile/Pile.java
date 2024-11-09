@@ -1,4 +1,4 @@
-import composite.CellBase;
+import composite.*;
 
 public class Pile {
     private CellBase[] stack;
@@ -53,6 +53,35 @@ public class Pile {
         for (int i = 0; i < this.size; i++) {
             System.out.println(this.stack[i]);
         }
+    }
+
+
+    void stackAllEmpty(Grid grid) {//Stack all EmptyCells in a Pile
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (grid.get(i, j).getValue() == 0) {
+                    this.push(grid.get(i, j));
+                }
+            }
+        }
+        return;
+    }
+    void pushAllRelated(CellBase cell, Grid grid) { // push on the stack all EmptyCell in the same Line/Column/Square
+        Line l = grid.getLine(cell.getYpos());
+        Column c = grid.getColumn(cell.getXpos());
+        Square s = grid.getSquare(cell.getXpos(), cell.getYpos());
+        for (int i = 0; i < 9; i++) {
+            if (l.get(i) instanceof EmptyCell empty_cell) {
+                push(empty_cell);
+            }
+            if (c.get(i) instanceof EmptyCell empty_cell) {
+                push(empty_cell);
+            }
+            if (s.get(i) instanceof EmptyCell empty_cell) {
+                push(empty_cell);
+            }
+        }
+        return;
     }
 
     

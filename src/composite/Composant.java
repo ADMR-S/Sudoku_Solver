@@ -26,8 +26,22 @@ Obligé de déclarer la taille de table au dessus sinon NullPointerException à 
     public String toString() {
         String res = "";
         for (int i = 0; i<9;i++) {
+            if (i%10==0 && i!=0){ //Pour la grid
+                res+="\n";
+            }
             res += this.table[i].getValue() + " ";
         }
         return res;
+    }
+
+    boolean checkValidity() {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (i != j && this.get(i).getValue() != 0 && this.get(j).getValue() != 0 && this.get(i).getValue() == this.get(j).getValue()) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

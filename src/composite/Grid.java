@@ -8,6 +8,7 @@ public class Grid{
     private Square[] squares;
     private int cellsToFill;
 
+
     private Grid() {}//Constructeur déplacé dans Builder.java
 
     public CellBase get(int x, int y) {
@@ -120,5 +121,14 @@ public class Grid{
             output = output.concat("\n");
         }*/
         return output;
+    }
+
+    boolean checkValidity() {
+        for (int i = 0; i < 9; i++) {
+            if (lines[i].checkValidity()) return false;
+            if (columns[i].checkValidity()) return false;
+            if (squares[i].checkValidity()) return false;
+        }
+        return true;
     }
 }

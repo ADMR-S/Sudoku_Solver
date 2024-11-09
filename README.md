@@ -30,7 +30,7 @@ Design Pattern à implémenter :
 - Visiteur (éviter instanceof)
 - Observateur
 - Memento
-- Revoir le composite
+- Revoir le composite (passer grid en composant, envisager comment passer Cell et EmptyCell en composant ?)
 - Chain of responsibility ? (Solver -> DR0 -> Solver -> DR1 -> Solver -> DR2 -> Solver -> DR3 -> Solver) ou pour les règles qui appellent les règles précédentes
 
 Observer : vérifie si des cellules n'ont plus de valeur possble, auquel cas prévient le solver et déclenche les memento pour recharger la grille pré-complétée
@@ -43,3 +43,5 @@ Itérateur qui retourne tous les carrés, toutes les lignes ou toutes les colonn
 Utilliser une librairie pour la Pile plutôt que coder la classe nous-même ?
 Singleton pour la pile / le solver ?
 Pb quand plusieurs fichiers -> La taille de la pile la seconde fois ne fait pas de sens (-38 par exemple)
+
+Mettre la solution dans un fichier pour chaque sudoku ?
