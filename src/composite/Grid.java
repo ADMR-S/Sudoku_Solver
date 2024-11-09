@@ -8,12 +8,7 @@ public class Grid{
     private Square[] squares;
     private int cellsToFill;
 
-    private Grid() {
-        this.lines = new Line[9];
-        this.columns = new Column[9];
-        this.squares = new Square[9];
-        this.cellsToFill = 81;
-    }
+    private Grid() {}//Constructeur déplacé dans Builder.java
 
     public CellBase get(int x, int y) {
         return this.lines[y].get(x);

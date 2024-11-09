@@ -12,6 +12,8 @@ import java.util.Scanner;
 //Classe Printer
 //Créer exception erreur d'input
 
+//PB plusieurs fichiers : à résoudre
+
 public class Solver {
 
     //Transformer en singleton
@@ -21,6 +23,7 @@ public class Solver {
     public static void main(String[] args) throws FileNotFoundException{
 
         for(int k = 0; k<args.length; k++) {
+            System.out.println(args[k]);
             final Scanner sc = new Scanner(new File(args[k]));
 
             //BUILD
@@ -56,7 +59,7 @@ public class Solver {
             if (solver.grid.getCellsToFill() == 0) {
                 System.out.println(solver.grid);
                 System.out.println("Sudoku résolu en difficulté facile.");
-                return;
+                continue;
             }
 
             solver.solveWithDR2();
@@ -64,7 +67,7 @@ public class Solver {
             if (solver.grid.getCellsToFill() == 0) {
                 System.out.println(solver.grid);
                 System.out.println("Sudoku résolu en difficulté moyenne.");
-                return;
+                continue;
             }
 
             solver.solveWithDR3();
@@ -72,7 +75,7 @@ public class Solver {
             if (solver.grid.getCellsToFill() == 0) {
                 System.out.println(solver.grid);
                 System.out.println("Sudoku résolu en difficulté difficile.");
-                return;
+                continue;
             }
 
             System.out.println("TRES DIFFICILE.");
@@ -95,7 +98,7 @@ public class Solver {
 
                 if (solver.grid.get(x, y) instanceof EmptyCell cell && cell.numberPossibleValue() == 0) {
                     System.out.println("Cette cellule n'a pas de valeur possible, une mauvaise valeur à été rentré veuillez relancer le solver.");
-                    return;
+                    continue; //Reset ici à partir du memento
                 }
 
                 System.out.print("Les valeurs possible pour cette cellule sont : ");
@@ -126,6 +129,7 @@ public class Solver {
             System.out.println("Sudoku résolu avec une difficulté très difficiles.");
             System.out.println(solver.grid);
         }
+        return;
     }
 
     Pile stackAllEmpty() {//Stack all EmptyCells in a Pile

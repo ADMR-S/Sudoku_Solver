@@ -11,6 +11,10 @@ public class Builder{
 
     public Grid buildGrid(){ //Fonction principale qui crée la grille complète à partir du Scanner
         Grid grid = Grid.getInstance();
+        grid.setLines(new Line[9]);
+        grid.setColumns(new Column[9]);
+        grid.setSquares(new Square[9]);
+        grid.setCellsToFill(81);
         for (int i = 0; i < 9; i++) {
             grid.setLineValue(new Line(), i);
             grid.setColumnValue(new Column(), i);
