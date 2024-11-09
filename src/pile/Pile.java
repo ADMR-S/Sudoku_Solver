@@ -1,4 +1,6 @@
+package pile;
 import composite.*;
+
 
 public class Pile {
     private CellBase[] stack;
@@ -56,7 +58,7 @@ public class Pile {
     }
 
 
-    void stackAllEmpty(Grid grid) {//Stack all EmptyCells in a Pile
+    public void stackAllEmpty(Grid grid) {//Stack all EmptyCells in a Pile
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (grid.get(i, j).getValue() == 0) {
@@ -66,7 +68,16 @@ public class Pile {
         }
         return;
     }
-    void pushAllRelated(CellBase cell, Grid grid) { // push on the stack all EmptyCell in the same Line/Column/Square
+    public void stackAllNonEmpty(Grid grid) {//Stack all non-empty cells in a Pile
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (grid.get(i, j).getValue() != 0) {
+                    push(grid.get(i, j));
+                }
+            }
+        }
+    }
+    public void pushAllRelated(CellBase cell, Grid grid) { // push on the stack all EmptyCell in the same Line/Column/Square
         Line l = grid.getLine(cell.getYpos());
         Column c = grid.getColumn(cell.getXpos());
         Square s = grid.getSquare(cell.getXpos(), cell.getYpos());

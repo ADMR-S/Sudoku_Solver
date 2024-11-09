@@ -21,7 +21,7 @@ public class Solver {
 
     public static void main(String[] args) throws FileNotFoundException{
 
-        for(int k = 0; k<args.length; k++) {
+        for(int k = 0; k<args.length; k++) {//Chaque argument est un fichier .txt qui contient une grille
             System.out.println(args[k]);
             final Scanner sc = new Scanner(new File(args[k]));
 
@@ -36,25 +36,10 @@ public class Solver {
             System.out.println(grid);
             //BOUCLE "Chain of responsibility" ? :
 
-            //Stack all non-empty cells in a Pile
-            Pile pile_init = new Pile(81 - grid.getCellsToFill());
-            for (int i = 0; i < 9; i++) {
-                for (int j = 0; j < 9; j++) {
-                    if (grid.get(i, j).getValue() != 0) {
-                        pile_init.push(grid.get(i, j));
-                    }
-                }
-            }
+            Context ctx = new Context(new DR0(), grid);
+            ctx.solve();
 
-
-            DR0 dr0 = new DR0();
-            while (!pile_init.isEmpty()) {
-                CellBase cell = pile_init.pop();
-                dr0.execut(cell, grid);
-            }
-
-            Context ctx = new Context(new DR1(), grid);
-
+            ctx.setStrategy(new DR1());
             ctx.solve();
 
             if (grid.getCellsToFill() == 0) {

@@ -1,5 +1,6 @@
 package rules;
 import composite.*;
+import pile.Pile;
 
 //Egalement remplacer la cellule des lignes, colonnes et squares par cell en entré pour ne pas à avoir à le faire autre part ?
 //(ça serait probablement plus simple pour le builder et les règles).
@@ -28,5 +29,11 @@ public class DR0 extends DeductionRule {
             return true;
         }
         return false;
+    }
+    public void routine(Pile pile, Grid grid){
+        while (!pile.isEmpty()) {
+            CellBase cell = pile.pop();
+            execut(cell, grid);
+        }
     }
 }

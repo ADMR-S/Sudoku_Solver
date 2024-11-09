@@ -1,5 +1,6 @@
 package rules;
 import composite.*;
+import pile.Pile;
 
 public class DR1 extends DeductionRule {
     //SINGLETONS NUS : Seule valeur possible restante dans la cellule
@@ -26,5 +27,17 @@ public class DR1 extends DeductionRule {
             }
         }
         return false;
+    }
+
+    public void routine(Pile pile, Grid grid) {
+
+        while (!pile.isEmpty()) {
+            CellBase cell = pile.pop();
+
+            if (execut(cell, grid)) {
+                System.out.println("DR1.");
+                pile.pushAllRelated(cell, grid);
+            }
+        }
     }
 }

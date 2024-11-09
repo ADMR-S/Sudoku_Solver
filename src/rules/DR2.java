@@ -1,5 +1,6 @@
 package rules;
 import composite.*;
+import pile.Pile;
 
 public class DR2 extends DeductionRule{
     //Singletons cachés : seule valeur possible pour cette valeur dans une ligne, colonne ou carré
@@ -48,5 +49,22 @@ public class DR2 extends DeductionRule{
             }
         }
         return false;
+    }
+
+    public void routine(Pile pile, Grid grid) {
+
+        DR1 dr1 = new DR1();
+
+        while (!pile.isEmpty()) {
+            CellBase cell = pile.pop();
+
+            if (dr1.execut(cell, grid)) {
+                System.out.println("DR1.");
+                pile.pushAllRelated(cell, grid);
+            } else if (execut(cell, grid)) {
+                System.out.println("DR2.");
+                pile.pushAllRelated(cell, grid);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 package rules;
 import composite.*;
+import pile.Pile;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
@@ -80,4 +81,26 @@ public class DR3 extends DeductionRule{
         }
         return false;
     }
+
+    public void routine(Pile pile, Grid grid){
+
+        DR1 dr1 = new DR1();
+        DR2 dr2 = new DR2();
+
+        while (!pile.isEmpty()) {
+            CellBase cell = pile.pop();
+
+            if (execut(cell, grid)) {
+                System.out.println("DR3.");
+                pile.pushAllRelated(cell, grid);
+            } else if (dr1.execut(cell, grid)) {
+                System.out.println("DR1.");
+                pile.pushAllRelated(cell, grid);
+            } else if (dr2.execut(cell, grid)) {
+                System.out.println("DR2.");
+                pile.pushAllRelated(cell, grid);
+            }
+        }
+    }
 }
+
