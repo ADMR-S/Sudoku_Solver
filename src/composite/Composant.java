@@ -34,7 +34,7 @@ Obligé de déclarer la taille de table au dessus sinon NullPointerException à 
         return res;
     }
 
-    boolean checkValidity() {
+    public boolean checkValidity() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (i != j && this.get(i).getValue() != 0 && this.get(j).getValue() != 0 && this.get(i).getValue() == this.get(j).getValue()) {

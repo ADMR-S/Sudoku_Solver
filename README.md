@@ -30,6 +30,8 @@ Design Pattern à implémenter :
 - Visiteur (éviter instanceof)
 - Observateur
 - Memento
+- Iterator (remplacerait le composite et renverrait les lignes, colonnes et carrés de la grille)
+- Factory pour les cellules et les composants
 - Revoir le composite (passer grid en composant, envisager comment passer Cell et EmptyCell en composant ?)
 - Chain of responsibility ? (Solver -> DR0 -> Solver -> DR1 -> Solver -> DR2 -> Solver -> DR3 -> Solver) ou pour les règles qui appellent les règles précédentes
 
@@ -45,3 +47,5 @@ Singleton pour la pile / le solver ?
 Pb quand plusieurs fichiers -> La taille de la pile la seconde fois ne fait pas de sens (-38 par exemple)
 
 Mettre la solution dans un fichier pour chaque sudoku ?
+
+Intérêt de la pile plutôt qu'une ArrayList ?

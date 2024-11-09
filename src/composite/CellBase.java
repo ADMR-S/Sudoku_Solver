@@ -1,8 +1,8 @@
 package composite;
 
 public abstract class CellBase{ //Base pour les classes Cell et EmptyCell
-    private int xpos;
-    private int ypos;
+    protected int xpos;
+    protected int ypos;
 
     public CellBase(int xpos, int ypos) {
         this.xpos = xpos;
@@ -25,6 +25,7 @@ public abstract class CellBase{ //Base pour les classes Cell et EmptyCell
     public boolean  checkPossibleValue(int i) {
         return false;
     }
+    public abstract CellBase getCopy();
 
     public String toString() {
         return "CellBase [xpos=" + xpos + ", ypos=" + ypos + "]";

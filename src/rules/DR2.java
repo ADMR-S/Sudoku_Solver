@@ -51,7 +51,7 @@ public class DR2 extends DeductionRule{
         return false;
     }
 
-    public void routine(Pile pile, Grid grid) {
+    public void routine(Pile pile, Grid grid) {//Repeat DR1 and DR2 and try to solve without the help of user
 
         DR1 dr1 = new DR1();
 

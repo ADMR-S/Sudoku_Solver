@@ -8,7 +8,6 @@ public class Grid{
     private Square[] squares;
     private int cellsToFill;
 
-
     private Grid() {}//Constructeur déplacé dans Builder.java
 
     public CellBase get(int x, int y) {
@@ -123,12 +122,44 @@ public class Grid{
         return output;
     }
 
-    boolean checkValidity() {
+    public boolean checkValidity() {
         for (int i = 0; i < 9; i++) {
-            if (lines[i].checkValidity()) return false;
-            if (columns[i].checkValidity()) return false;
-            if (squares[i].checkValidity()) return false;
+            if (!lines[i].checkValidity()) return false;
+            if (!columns[i].checkValidity()) return false;
+            if (!squares[i].checkValidity()) return false;
         }
         return true;
+    }
+
+    public Snapshot makeSnapshot(){
+        Line[] linesCopy = new Line[9];
+        Column[] columnsCopy = new Column[9];
+        Square[] squaresCopy = new Square[9];
+
+        for(int k = 0; k<9; k++){
+            linesCopy[k] = new Line();
+            columnsCopy[k] = new Column();
+            squaresCopy[k] = new Square();
+        }
+        //Répétition code set(...) ci-dessous, encapsuler ?
+        for (int x = 0; x<9; x++){
+            for(int y = 0; y<9; y++){
+                CellBase cellOrEmptyCellCopy = this.lines[y].getTable()[x].getCopy();
+                linesCopy[y].setTableCell(cellOrEmptyCellCopy, x);
+                columnsCopy[x].setTableCell(cellOrEmptyCellCopy, y);
+                squaresCopy[x/3 + (y/3)*3].setTableCell(cellOrEmptyCellCopy, x%3 + (y%3)*3);
+            }
+        }
+        Snapshot snap = new Snapshot(linesCopy, columnsCopy, squaresCopy, this.cellsToFill);
+        return snap;
+    }
+
+    public void restore(Memento memento){
+        this.lines = memento.getLines();
+        this.columns = memento.getColumns();
+        this.squares = memento.getSquares();
+        this.cellsToFill = memento.getCellsToFill();
+
+        return;
     }
 }

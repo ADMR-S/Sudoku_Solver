@@ -19,4 +19,8 @@ public class Cell extends CellBase{ //Représente une cellule dont la valeur est
     public String toString() {
         return "Cell [xpos=" + this.getXpos() + ", ypos=" + this.getYpos() + "] value : " + this.value;
     }
+    public Cell getCopy(){
+        Cell cellCopy = new Cell(this.xpos, this.ypos, this.value);
+        return cellCopy;
+    }
 }

@@ -29,4 +29,11 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
     public String toString() {
         return "EmptyCell [xpos=" + getXpos() + ", ypos=" + getYpos() + ", possibleValues=" + java.util.Arrays.toString(possibleValues) + "]";
     }
+    public EmptyCell getCopy(){
+        EmptyCell emptyCellCopy = new EmptyCell(this.xpos, this.ypos);
+        for(int i =0; i<9; i++){
+            emptyCellCopy.possibleValues[i] = this.possibleValues[i];
+        }
+        return emptyCellCopy;
+    }
 }

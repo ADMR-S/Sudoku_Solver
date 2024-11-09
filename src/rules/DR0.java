@@ -30,7 +30,7 @@ public class DR0 extends DeductionRule {
         }
         return false;
     }
-    public void routine(Pile pile, Grid grid){
+    public void routine(Pile pile, Grid grid){//Routine : execution de DR0 pour chaque cellule remplie de la grille
         while (!pile.isEmpty()) {
             CellBase cell = pile.pop();
             execut(cell, grid);

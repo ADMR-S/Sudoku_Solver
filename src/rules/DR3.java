@@ -82,7 +82,7 @@ public class DR3 extends DeductionRule{
         return false;
     }
 
-    public void routine(Pile pile, Grid grid){
+    public void routine(Pile pile, Grid grid){ //Repeat DR3, DR1 and DR2 and try to solve without the help of user
 
         DR1 dr1 = new DR1();
         DR2 dr2 = new DR2();
