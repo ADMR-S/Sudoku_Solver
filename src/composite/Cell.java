@@ -1,6 +1,6 @@
 package composite;
 
-public class Cell extends CellBase{
+public class Cell extends CellBase{ //Représente une cellule dont la valeur est fixée
 
     private int value;
 

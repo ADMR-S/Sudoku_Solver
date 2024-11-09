@@ -2,12 +2,13 @@ package composite;
 
 public class Grid{
 
+    private static Grid instance;
     private Line[] lines;
     private Column[] columns;
     private Square[] squares;
     private int cellsToFill;
 
-    public Grid() {
+    private Grid() {
         this.lines = new Line[9];
         this.columns = new Column[9];
         this.squares = new Square[9];
@@ -63,6 +64,12 @@ public class Grid{
         return squares[i + j*3];
     }
 
+    public static Grid getInstance(){
+        if(Grid.instance == null){
+            Grid.instance = new Grid();
+        }
+        return Grid.instance;
+    }
     public void setSquares(Square[] squares) {
         this.squares = squares;
     }
@@ -79,15 +86,15 @@ public class Grid{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String output = "";
         //PRINT
         // Mettre cette boucle dans une classe Printer ? ou overkill?
         // (Peut-être utile quand on aura les classes lignes, colonnes etc...)
         output = output.concat("\nLignes :\n");
-        for(int i=0; i<9; i++){
-            for(int j=0; j<9; j++){
-                if(this.getLines()[i].getTable()[j] instanceof Cell cell){
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (this.getLines()[i].getTable()[j] instanceof Cell cell) {
                     output = output.concat(Integer.toString(cell.getValue()));
                 } else {
                     output = output.concat(" ");

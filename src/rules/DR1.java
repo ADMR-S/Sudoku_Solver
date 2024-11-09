@@ -2,6 +2,8 @@ package rules;
 import composite.*;
 
 public class DR1 extends DeductionRule {
+    //SINGLETONS NUS : Seule valeur possible restante dans la cellule
+    //https://sudoku.com/fr/regles-du-sudoku/singletons-nus/
     public boolean execut(CellBase c, Grid g){
         if (c instanceof EmptyCell cell) {
             int[] p = cell.getPossibleValues();

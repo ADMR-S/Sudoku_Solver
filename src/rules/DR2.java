@@ -2,6 +2,8 @@ package rules;
 import composite.*;
 
 public class DR2 extends DeductionRule{
+    //Singletons cachés : seule valeur possible pour cette valeur dans une ligne, colonne ou carré
+    //https://sudoku.com/fr/regles-du-sudoku/singletons-caches/
     public boolean execut(CellBase c_in, Grid g) {
         if (c_in instanceof EmptyCell cell) {
             int x = cell.getXpos();

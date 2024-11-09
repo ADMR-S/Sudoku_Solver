@@ -4,6 +4,8 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class DR3 extends DeductionRule{
+    //Paires nues : deux cases avec deux mêmes valeurs possibles dans une ligne, colonne ou carré
+    //https://sudoku.com/fr/regles-du-sudoku/paires-nues/
     public boolean execut(CellBase c_in, Grid g) {
         if (c_in instanceof EmptyCell cell) {
             int x = cell.getXpos();

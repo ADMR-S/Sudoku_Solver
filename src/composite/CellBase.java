@@ -1,6 +1,6 @@
 package composite;
 
-public abstract class CellBase{
+public abstract class CellBase{ //Base pour les classes Cell et EmptyCell
     private int xpos;
     private int ypos;
 

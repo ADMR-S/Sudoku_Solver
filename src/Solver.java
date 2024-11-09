@@ -18,114 +18,114 @@ public class Solver {
     private int cellsToFill; // Plutôt une pile qu'un entier
     private Grid grid;
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException{
 
+        for(int k = 0; k<args.length; k++) {
+            final Scanner sc = new Scanner(new File(args[k]));
 
-        Scanner sc = new Scanner(new File("/home/florent/Documents/Master/Software_eng/Sudoku_Solver-main/ressources/grille_tres_difficile2.txt"));
+            //BUILD
+            Builder builder = new Builder(sc);
 
-        //BUILD
-        Builder builder = new Builder(sc);
+            Solver solver = new Solver();
 
-        Solver solver = new Solver();
+            solver.grid = builder.buildGrid();
 
-        solver.grid = builder.buildGrid();
+            System.out.println("\nCells to fill " + solver.grid.getCellsToFill());
+            System.out.println(solver.grid);
+            //BOUCLE "Chain of responsibility" ? :
 
-        System.out.println("\nCells to fill " + solver.grid.getCellsToFill());
-        System.out.println(solver.grid);
-        //BOUCLE "Chain of responsibility" ? :
-
-        //Stack all non-empty cells in a Pile
-        Pile pile_init = new Pile(81 - solver.grid.getCellsToFill());
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (solver.grid.get(i, j).getValue() != 0) {
-                    pile_init.push(solver.grid.get(i, j));
+            //Stack all non-empty cells in a Pile
+            Pile pile_init = new Pile(81 - solver.grid.getCellsToFill());
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    if (solver.grid.get(i, j).getValue() != 0) {
+                        pile_init.push(solver.grid.get(i, j));
+                    }
                 }
             }
-        }
 
 
-        DR0 dr0 = new DR0();
-        while (!pile_init.isEmpty()) {
-            CellBase cell = pile_init.pop();
-            dr0.execut(cell, solver.grid);
-        }
-
-        solver.solveWithDR1();
-
-        if(solver.grid.getCellsToFill()==0) {
-            System.out.println(solver.grid);
-            System.out.println("Sudoku résolu en difficulté facile.");
-            return;
-        }
-
-        solver.solveWithDR2();
-
-        if(solver.grid.getCellsToFill()==0) {
-            System.out.println(solver.grid);
-            System.out.println("Sudoku résolu en difficulté moyenne.");
-            return;
-        }
-
-        solver.solveWithDR3();
-
-        if(solver.grid.getCellsToFill()==0) {
-            System.out.println(solver.grid);
-            System.out.println("Sudoku résolu en difficulté difficile.");
-            return;
-        }
-
-        System.out.println("TRES DIFFICILE.");
-
-        //Implémenter la demande à l'utilisateur.
-        Scanner saisie = new Scanner(System.in);
-
-        while (solver.grid.getCellsToFill() > 0) {
-
-            System.out.println(solver.grid);
-
-            System.out.println("Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
-            int x = saisie.nextInt();
-            int y = saisie.nextInt();
-            while (solver.grid.get(x, y).getValue() != 0) {
-                System.out.println("Cette cellule n'est pas vide. Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
-                x = saisie.nextInt();
-                y = saisie.nextInt();
+            DR0 dr0 = new DR0();
+            while (!pile_init.isEmpty()) {
+                CellBase cell = pile_init.pop();
+                dr0.execut(cell, solver.grid);
             }
 
-            if (solver.grid.get(x, y) instanceof EmptyCell cell && cell.numberPossibleValue() == 0) {
-                System.out.println("Cette cellule n'a pas de valeur possible, une mauvaise valeur à été rentré veuillez relancer le solver.");
+            solver.solveWithDR1();
+
+            if (solver.grid.getCellsToFill() == 0) {
+                System.out.println(solver.grid);
+                System.out.println("Sudoku résolu en difficulté facile.");
                 return;
             }
 
-            System.out.print("Les valeurs possible pour cette cellule sont : ");
-            for (int i = 0; i < 9; i++) {
-                if (solver.grid.get(x, y).checkPossibleValue(i + 1)) {
-                    System.out.print(i + 1 + " ");
-                }
-            }
-            System.out.println();
-            System.out.println("Entrez la valeur que vous voulez mettre dans cette cellule : ");
-            int value = saisie.nextInt();
-            while (value < 1 || value > 9 || !solver.grid.get(x, y).checkPossibleValue(value)) {
-                System.out.println("La valeur doit être comprise entre 1 et 9 et être une valeur possible pour la cellule. Entrez la valeur que vous voulez mettre dans cette cellule : ");
-                value = saisie.nextInt();
-            }
+            solver.solveWithDR2();
 
-            Cell c_new = new Cell(x, y, value);
-            DR0 r = new DR0();
-            r.execut(c_new, solver.grid);
-            solver.grid.set(c_new, x, y);
-            solver.grid.setCellsToFill(solver.grid.getCellsToFill() - 1);
+            if (solver.grid.getCellsToFill() == 0) {
+                System.out.println(solver.grid);
+                System.out.println("Sudoku résolu en difficulté moyenne.");
+                return;
+            }
 
             solver.solveWithDR3();
+
+            if (solver.grid.getCellsToFill() == 0) {
+                System.out.println(solver.grid);
+                System.out.println("Sudoku résolu en difficulté difficile.");
+                return;
+            }
+
+            System.out.println("TRES DIFFICILE.");
+
+            //Implémenter la demande à l'utilisateur.
+            Scanner saisie = new Scanner(System.in);
+
+            while (solver.grid.getCellsToFill() > 0) {
+
+                System.out.println(solver.grid);
+
+                System.out.println("Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
+                int x = saisie.nextInt();
+                int y = saisie.nextInt();
+                while (solver.grid.get(x, y).getValue() != 0) {
+                    System.out.println("Cette cellule n'est pas vide. Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
+                    x = saisie.nextInt();
+                    y = saisie.nextInt();
+                }
+
+                if (solver.grid.get(x, y) instanceof EmptyCell cell && cell.numberPossibleValue() == 0) {
+                    System.out.println("Cette cellule n'a pas de valeur possible, une mauvaise valeur à été rentré veuillez relancer le solver.");
+                    return;
+                }
+
+                System.out.print("Les valeurs possible pour cette cellule sont : ");
+                for (int i = 0; i < 9; i++) {
+                    if (solver.grid.get(x, y).checkPossibleValue(i + 1)) {
+                        System.out.print(i + 1 + " ");
+                    }
+                }
+                System.out.println();
+                System.out.println("Entrez la valeur que vous voulez mettre dans cette cellule : ");
+                int value = saisie.nextInt();
+                while (value < 1 || value > 9 || !solver.grid.get(x, y).checkPossibleValue(value)) {
+                    System.out.println("La valeur doit être comprise entre 1 et 9 et être une valeur possible pour la cellule. Entrez la valeur que vous voulez mettre dans cette cellule : ");
+                    value = saisie.nextInt();
+                }
+
+                Cell c_new = new Cell(x, y, value);
+                DR0 r = new DR0();
+                r.execut(c_new, solver.grid);
+                solver.grid.set(c_new, x, y);
+                solver.grid.setCellsToFill(solver.grid.getCellsToFill() - 1);
+
+                solver.solveWithDR3();
+            }
+
+
+            System.out.println(solver.grid.getCellsToFill());
+            System.out.println("Sudoku résolu avec une difficulté très difficiles.");
+            System.out.println(solver.grid);
         }
-
-
-
-        System.out.println(solver.grid.getCellsToFill());
-        System.out.println("Sudoku résolu avec une difficulté très difficiles.");
-        System.out.println(solver.grid);
     }
 
     Pile stackAllEmpty() {//Stack all EmptyCells in a Pile
@@ -237,5 +237,4 @@ public class Solver {
         }
         return true;
     }
-
 }

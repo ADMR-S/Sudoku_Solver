@@ -1,6 +1,6 @@
 package composite;
 
-public class EmptyCell extends CellBase{
+public class EmptyCell extends CellBase{//Représente une cellule vide dont on ne connaît pas encore la valeur
     private int[] possibleValues;
 
     //A tester
