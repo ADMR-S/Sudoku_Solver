@@ -19,13 +19,11 @@ import java.util.Arrays;
 //Faire fonction de test avec les solutions sous forme d'assert
 //Mettre UML à jour
 //Commenter pour la doc
-//RESOUDRE BUG grille tres difficile reload de la grille
 //Implementer visiteur
-//Verifier gestion d'erreur partout
 //Cleaner code
 //restructurer packages ? (sous-repertoire memento dans composite par ex, renommer rules en strategy... GridSnapshot)
 //Implementer iterator (juste la fonction qui retourne lignes, carrés et colonnes, pas compliqué) et s'en servir dans le builder et la fonction makeSnapshot de Grid
-//Singleton pour pile / solver ?
+//Passer tableau valeurs possibles en tableau de booléens
 
 public class Solver {
 

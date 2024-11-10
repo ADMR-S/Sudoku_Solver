@@ -2,6 +2,9 @@ package composite;
 import java.util.ArrayList;
 
 public class EmptyCell extends CellBase{//Représente une cellule vide dont on ne connaît pas encore la valeur
+    /**
+     * Test de description d'un champ
+     */
     private int[] possibleValues;
     private ArrayList<Subscriber> subscribers;
 
@@ -11,6 +14,11 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
         this.subscribers = new ArrayList<Subscriber>();
     }
 
+    /**
+     * Retourne un tableau indexé par valeur des valeurs possibles d'une cellule vide
+     *
+     * @return  int[]   un tableau des valeurs possibles d'une cellule vide
+     */
     public int[] getPossibleValues() {
         return possibleValues;
     }
