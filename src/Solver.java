@@ -16,14 +16,12 @@ import java.util.Scanner;
 
 //DERNIERES CHOSES A FAIRE ?
 //Mettre les print sous forme d'assertion ou qque chose comme ça de désactivable et activable
-//Faire fonction de test avec les solutions sous forme d'assert
-//Mettre UML à jour
+//Fonctions de tests ? Assertions ? (assert !grid.isWrong() par ex)
 //Commenter pour la doc
 //Implementer visiteur
 //Cleaner code
-//restructurer packages ? (sous-repertoire memento dans composite par ex, renommer rules en strategy... GridSnapshot)
-//Implementer iterator (juste la fonction qui retourne lignes, carrés et colonnes, pas compliqué) et s'en servir dans le builder et la fonction makeSnapshot de Grid
 //Passer tableau valeurs possibles en tableau de booléens
+//Mettre doc en ligne
 
 public class Solver {
 
