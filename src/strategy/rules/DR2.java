@@ -12,6 +12,13 @@ import strategy.Pile;
 public class DR2 extends DeductionRule{
     //Singletons cachés : seule valeur possible pour cette valeur dans une ligne, colonne ou carré
     //https://sudoku.com/fr/regles-du-sudoku/singletons-caches/
+
+    /** Règle qui, pour une cellule donnée, si une valeur possible n'est pas possible ailleurs dans la ligne/colonne/carré, la remplit.
+     *
+     * @param c_in CellBase la cellule à tester
+     * @param g Grid la grille de jeu
+     * @return  boolean vrai si la règle est appliqué à la cellule c, faux sinon (donc si c n'est pas une cellule vide).
+     */
     public boolean execut(CellBase c_in, Grid g) {
         SudokuLogger.getLogger().info("DR2 execut");
         if (c_in instanceof EmptyCell cell) {
@@ -62,6 +69,13 @@ public class DR2 extends DeductionRule{
         return false;
     }
 
+    /**
+     * Applique la règle DR2 en plus de DR1 à la pile p et à la grille g dans le cadre d'une strategie
+     * Et empile les cellules vides de la même ligne/colonne/carré quand elle est appliqué.
+     *
+     * @param pile Pile la pile de cellules à tester
+     * @param grid Grid la grille de jeu
+     */
     public void routine(Pile pile, Grid grid) {//Repeat DR1 and DR2 and try to solve without the help of user
 
         DR1 dr1 = new DR1();

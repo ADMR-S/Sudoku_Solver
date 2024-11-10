@@ -10,6 +10,12 @@ public class DR1 extends DeductionRule {
     // SINGLETONS NUS : Seule valeur possible restante dans la cellule
     // https://sudoku.com/fr/regles-du-sudoku/singletons-nus/
 
+    /** Règle qui, pour une cellule donnée, si il ne reste qu'une valeur possible, la remplit et appel DR0.
+     *
+     * @param c CellBase la cellule à tester
+     * @param g Grid la grille de jeu
+     * @return  boolean vrai si la règle est appliqué à la cellule c, faux sinon (donc si c n'est pas une cellule vide).
+     */
     public boolean execut(CellBase c, Grid g){
         SudokuLogger.getLogger().info("DR1 execut");
         if (c instanceof EmptyCell cell) {
@@ -37,6 +43,13 @@ public class DR1 extends DeductionRule {
         return false;
     }
 
+    /**
+     * Applique la règle DR1 à la pile p et à la grille g dans le cadre d'une strategie
+     * Et empile les cellules vides de la même ligne/colonne/carré quand elle est appliqué.
+     *
+     * @param pile Pile la pile de cellules à tester
+     * @param grid Grid la grille de jeu
+     */
     public void routine(Pile pile, Grid grid) {//Repeat DR1 and try to solve without the help of user
 
         while (!pile.isEmpty()) {

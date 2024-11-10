@@ -13,6 +13,14 @@ import java.util.Arrays;
 public class DR3 extends DeductionRule {
     //Paires nues : deux cases avec deux mêmes valeurs possibles dans une ligne, colonne ou carré
     //https://sudoku.com/fr/regles-du-sudoku/paires-nues/
+
+    /** Règle qui, pour une cellule donnée, si il ne reste que deux valeurs possibles, et que ces valeurs sont les mêmes que dans une autre cellule de la même ligne/colonne/carré,
+     * retire ces valeurs des autres cellules de la même ligne/colonne/carré.
+     *
+     * @param c_in CellBase la cellule à tester
+     * @param g Grid la grille de jeu
+     * @return  boolean vrai si la règle est appliqué à la cellule c, faux sinon (donc si c n'est pas une cellule vide).
+     */
     public boolean execut(CellBase c_in, Grid g) {
         SudokuLogger.getLogger().info("DR3 execut");
         if (c_in instanceof EmptyCell cell && cell.numberPossibleValue() == 2) {
@@ -93,6 +101,13 @@ public class DR3 extends DeductionRule {
         return false;
     }
 
+    /**
+     * Applique la règle DR3 en plus de DR1 et DR2 à la pile p et à la grille g dans le cadre d'une strategie
+     * Et empile les cellules vides de la même ligne/colonne/carré quand elle est appliqué.
+     *
+     * @param pile Pile la pile de cellules à tester
+     * @param grid Grid la grille de jeu
+     */
     public void routine(Pile pile, Grid grid) { //Repeat DR3, DR1 and DR2 and try to solve without the help of user
 
         DR1 dr1 = new DR1();
