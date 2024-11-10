@@ -5,10 +5,23 @@ public class Builder{
 
     private final Scanner input;
 
+    /**
+     * Le constructeur du Builder. Prend un scanner en entrée (qui doit être formaté selon le format sudoku attendu)
+     *
+     * @param  input  Un Scanner qui contient la grille de sudoku au format spécifié
+     */
     public Builder (Scanner input){
         this.input = input;
     }
 
+    /**
+     * Fonction de construction de la grille de sudoku utilisée par le solver et le context de rules/
+     * Initialise la grille à partir du Scanner à partir duquel le Builder est créé
+     *
+     *
+     * @return  Grid   La grille de sudoku initialisée
+     * @see         buildFromStringArray()
+     */
     public Grid buildGrid(){ //Fonction principale qui crée la grille complète à partir du Scanner
         Grid grid = Grid.getInstance();
         grid.setLines(new Line[9]);
@@ -54,6 +67,15 @@ public class Builder{
     }
 
 
+    /**
+     * Fonction de construction auxiliaire qui crée les cellules d'une ligne de la grille
+     * et les assigne à ses différents composants via la fonction set de la classe Grid
+     *
+     * @param  ligneCourante  La ligne sous forme de String que l'on souhaite créer avec des CellBase (Cell ou EmptyCell)
+     * @param  ypos  Le numéro de la ligne courante
+     * @param  grid La grille de sudoku
+     * @see         buildGrid()
+     */
     public void buildFromStringArray(String[] ligneCourante, int ypos, Grid grid){ //Fonction qui permet de construire une ligne de grille
         //On prend la grille en argument pour actualiser son champ cellsToFill
         Line newLine = new Line();

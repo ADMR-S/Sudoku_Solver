@@ -6,6 +6,8 @@ import rules.DR2;
 import rules.DR3;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -13,9 +15,11 @@ import java.util.Arrays;
 //PROGRAMME ECRIT PAR FLORENT BELOT ET ADAM MIR-SADJADI
 
 //DERNIERES CHOSES A FAIRE ?
+//Mettre les print sous forme d'assertion ou qque chose comme ça de désactivable et activable
+//Faire fonction de test avec les solutions sous forme d'assert
 //Mettre UML à jour
 //Commenter pour la doc
-//RESOUDRE BUG grile tres difficile reload de la grille
+//RESOUDRE BUG grille tres difficile reload de la grille
 //Implementer visiteur
 //Verifier gestion d'erreur partout
 //Cleaner code
@@ -24,6 +28,8 @@ import java.util.Arrays;
 //Singleton pour pile / solver ?
 
 public class Solver {
+
+    private static final boolean printToFile = false; //Change to true if you want to get the answer in a .txt file
 
     /**
      * MODELE DOC Doxygen (voir fonction main dans le html généré dans doc/)
@@ -68,6 +74,9 @@ public class Solver {
                     System.out.println(grid);
                     System.out.println("Sudoku résolu en difficulté facile.");
                     System.out.println("Grille valide : " + grid.checkValidity());
+                    if(printToFile){
+                        printSolutionToFile(args[k], grid);
+                    }
                     continue;
                 }
 
@@ -78,6 +87,9 @@ public class Solver {
                     System.out.println(grid);
                     System.out.println("Sudoku résolu en difficulté moyenne.");
                     System.out.println("Grille valide : " + grid.checkValidity());
+                    if(printToFile){
+                        printSolutionToFile(args[k], grid);
+                    }
                     continue;
                 }
 
@@ -88,6 +100,9 @@ public class Solver {
                     System.out.println(grid);
                     System.out.println("Sudoku résolu en difficulté difficile.");
                     System.out.println("Grille valide : " + grid.checkValidity());
+                    if(printToFile){
+                        printSolutionToFile(args[k], grid);
+                    }
                     continue;
                 }
 
@@ -167,6 +182,9 @@ public class Solver {
                 System.out.println(grid);
                 System.out.println("Sudoku résolu avec une difficulté très difficiles.");
                 System.out.println("Grille valide : " + grid.checkValidity());
+                if(printToFile){
+                    printSolutionToFile(args[k], grid);
+                }
             }
             return;
         }
@@ -178,11 +196,38 @@ public class Solver {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Fonction utilitaire pour recevoir un entier depuis l'entrée standard
+     *
+     * @param  sc   Un Scanner ouvert sur l'entrée standard
+     * @return      Un entier saisi par l'utilisateur
+     */
     private static int getInt(Scanner sc) {
         while (!sc.hasNextInt()) {
             System.out.println("Veuillez entrer un entier.");
             sc.next();
         }
         return sc.nextInt();
+    }
+    private static void printSolutionToFile(String sourceName, Grid grid){
+        try {
+            String name = sourceName.replace(".txt", "Answer.txt");
+            File outputFile = new File(name);
+            if (outputFile.createNewFile()) {
+                System.out.println("File created: " + outputFile.getName());
+            } else {
+                System.err.println("Le fichier existe déjà");
+            }
+            FileWriter myWriter = new FileWriter(name);
+            myWriter.write(grid.toCSV());
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        }
+        catch (IOException e) {
+            System.err.println("Impossible de créer ou modifier le fichier");
+            e.printStackTrace();
+        }
+        return;
     }
 }

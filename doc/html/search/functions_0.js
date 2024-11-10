@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['main_0',['main',['../classSolver.html#ab02789b3f18bae50ced221dd213de85a',1,'Solver']]]
+  ['builder_0',['Builder',['../classBuilder.html#a3ffa9e7ffd9db952e60165c2a2569f86',1,'Builder']]],
+  ['buildfromstringarray_1',['buildFromStringArray',['../classBuilder.html#a8059b2c00d388a70236d48c3815894bd',1,'Builder']]],
+  ['buildgrid_2',['buildGrid',['../classBuilder.html#a9b683a04d8e86ddab137ba910a4a342a',1,'Builder']]]
 ];

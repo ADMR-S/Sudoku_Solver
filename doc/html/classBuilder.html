@@ -94,14 +94,14 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3ffa9e7ffd9db952e60165c2a2569f86" id="r_a3ffa9e7ffd9db952e60165c2a2569f86"><td class="memItemLeft" align="right" valign="top"><a id="a3ffa9e7ffd9db952e60165c2a2569f86" name="a3ffa9e7ffd9db952e60165c2a2569f86"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Builder</b> (Scanner input)</td></tr>
+<tr class="memitem:a3ffa9e7ffd9db952e60165c2a2569f86" id="r_a3ffa9e7ffd9db952e60165c2a2569f86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ffa9e7ffd9db952e60165c2a2569f86">Builder</a> (Scanner input)</td></tr>
+<tr class="memdesc:a3ffa9e7ffd9db952e60165c2a2569f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le constructeur du <a class="el" href="classBuilder.html">Builder</a>.  <br /></td></tr>
 <tr class="separator:a3ffa9e7ffd9db952e60165c2a2569f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b683a04d8e86ddab137ba910a4a342a" id="r_a9b683a04d8e86ddab137ba910a4a342a"><td class="memItemLeft" align="right" valign="top"><a id="a9b683a04d8e86ddab137ba910a4a342a" name="a9b683a04d8e86ddab137ba910a4a342a"></a>
-<a class="el" href="classcomposite_1_1Grid.html">Grid</a>&#160;</td><td class="memItemRight" valign="bottom"><b>buildGrid</b> ()</td></tr>
+<tr class="memitem:a9b683a04d8e86ddab137ba910a4a342a" id="r_a9b683a04d8e86ddab137ba910a4a342a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcomposite_1_1Grid.html">Grid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b683a04d8e86ddab137ba910a4a342a">buildGrid</a> ()</td></tr>
+<tr class="memdesc:a9b683a04d8e86ddab137ba910a4a342a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de construction de la grille de sudoku utilisée par le solver et le context de rules/ Initialise la grille à partir du Scanner à partir duquel le <a class="el" href="classBuilder.html">Builder</a> est créé  <br /></td></tr>
 <tr class="separator:a9b683a04d8e86ddab137ba910a4a342a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8059b2c00d388a70236d48c3815894bd" id="r_a8059b2c00d388a70236d48c3815894bd"><td class="memItemLeft" align="right" valign="top"><a id="a8059b2c00d388a70236d48c3815894bd" name="a8059b2c00d388a70236d48c3815894bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buildFromStringArray</b> (String[] ligneCourante, int ypos, <a class="el" href="classcomposite_1_1Grid.html">Grid</a> grid)</td></tr>
+<tr class="memitem:a8059b2c00d388a70236d48c3815894bd" id="r_a8059b2c00d388a70236d48c3815894bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8059b2c00d388a70236d48c3815894bd">buildFromStringArray</a> (String[] ligneCourante, int ypos, <a class="el" href="classcomposite_1_1Grid.html">Grid</a> grid)</td></tr>
+<tr class="memdesc:a8059b2c00d388a70236d48c3815894bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de construction auxiliaire qui crée les cellules d'une ligne de la grille et les assigne à ses différents composants via la fonction set de la classe Grid.  <br /></td></tr>
 <tr class="separator:a8059b2c00d388a70236d48c3815894bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -110,6 +110,92 @@ Private Attributes</h2></td></tr>
 final Scanner&#160;</td><td class="memItemRight" valign="bottom"><b>input</b></td></tr>
 <tr class="separator:ae48781075141ca433eb7f21e7f663de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3ffa9e7ffd9db952e60165c2a2569f86" name="a3ffa9e7ffd9db952e60165c2a2569f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ffa9e7ffd9db952e60165c2a2569f86">&#9670;&#160;</a></span>Builder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Builder.Builder </td>
+          <td>(</td>
+          <td class="paramtype">Scanner</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Le constructeur du <a class="el" href="classBuilder.html">Builder</a>. </p>
+<p>Prend un scanner en entrée (qui doit être formaté selon le format sudoku attendu)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Un Scanner qui contient la grille de sudoku au format spécifié </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8059b2c00d388a70236d48c3815894bd" name="a8059b2c00d388a70236d48c3815894bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8059b2c00d388a70236d48c3815894bd">&#9670;&#160;</a></span>buildFromStringArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Builder.buildFromStringArray </td>
+          <td>(</td>
+          <td class="paramtype">String[]</td>          <td class="paramname"><span class="paramname"><em>ligneCourante</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ypos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcomposite_1_1Grid.html">Grid</a></td>          <td class="paramname"><span class="paramname"><em>grid</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de construction auxiliaire qui crée les cellules d'une ligne de la grille et les assigne à ses différents composants via la fonction set de la classe Grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ligneCourante</td><td>La ligne sous forme de String que l'on souhaite créer avec des CellBase (Cell ou EmptyCell) </td></tr>
+    <tr><td class="paramname">ypos</td><td>Le numéro de la ligne courante </td></tr>
+    <tr><td class="paramname">grid</td><td>La grille de sudoku </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a9b683a04d8e86ddab137ba910a4a342a" title="Fonction de construction de la grille de sudoku utilisée par le solver et le context de rules/ Initia...">buildGrid()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a9b683a04d8e86ddab137ba910a4a342a" name="a9b683a04d8e86ddab137ba910a4a342a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b683a04d8e86ddab137ba910a4a342a">&#9670;&#160;</a></span>buildGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcomposite_1_1Grid.html">Grid</a> Builder.buildGrid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de construction de la grille de sudoku utilisée par le solver et le context de rules/ Initialise la grille à partir du Scanner à partir duquel le <a class="el" href="classBuilder.html">Builder</a> est créé </p>
+<dl class="section return"><dt>Returns</dt><dd>Grid La grille de sudoku initialisée </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Grid </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/<b>Builder.java</b></li>
 </ul>

@@ -3,21 +3,79 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classBuilder_a3ffa9e7ffd9db952e60165c2a2569f86}\label{classBuilder_a3ffa9e7ffd9db952e60165c2a2569f86} 
-{\bfseries Builder} (Scanner input)
-\item 
-\Hypertarget{classBuilder_a9b683a04d8e86ddab137ba910a4a342a}\label{classBuilder_a9b683a04d8e86ddab137ba910a4a342a} 
-\mbox{\hyperlink{classcomposite_1_1Grid}{Grid}} {\bfseries build\+Grid} ()
-\item 
-\Hypertarget{classBuilder_a8059b2c00d388a70236d48c3815894bd}\label{classBuilder_a8059b2c00d388a70236d48c3815894bd} 
-void {\bfseries build\+From\+String\+Array} (String\mbox{[}$\,$\mbox{]} ligne\+Courante, int ypos, \mbox{\hyperlink{classcomposite_1_1Grid}{Grid}} grid)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classBuilder_a3ffa9e7ffd9db952e60165c2a2569f86}{Builder}} (Scanner input)
+\begin{DoxyCompactList}\small\item\em Le constructeur du \doxylink{classBuilder}{Builder}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcomposite_1_1Grid}{Grid}} \mbox{\hyperlink{classBuilder_a9b683a04d8e86ddab137ba910a4a342a}{build\+Grid}} ()
+\begin{DoxyCompactList}\small\item\em Fonction de construction de la grille de sudoku utilisée par le solver et le context de rules/ Initialise la grille à partir du Scanner à partir duquel le \doxylink{classBuilder}{Builder} est créé \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBuilder_a8059b2c00d388a70236d48c3815894bd}{build\+From\+String\+Array}} (String\mbox{[}$\,$\mbox{]} ligne\+Courante, int ypos, \mbox{\hyperlink{classcomposite_1_1Grid}{Grid}} grid)
+\begin{DoxyCompactList}\small\item\em Fonction de construction auxiliaire qui crée les cellules d\textquotesingle{}une ligne de la grille et les assigne à ses différents composants via la fonction set de la classe Grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classBuilder_ae48781075141ca433eb7f21e7f663de5}\label{classBuilder_ae48781075141ca433eb7f21e7f663de5} 
 final Scanner {\bfseries input}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classBuilder_a3ffa9e7ffd9db952e60165c2a2569f86}\index{Builder@{Builder}!Builder@{Builder}}
+\index{Builder@{Builder}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{Builder()}{Builder()}}
+{\footnotesize\ttfamily \label{classBuilder_a3ffa9e7ffd9db952e60165c2a2569f86} 
+Builder.\+Builder (\begin{DoxyParamCaption}\item[{Scanner}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Le constructeur du \doxylink{classBuilder}{Builder}. 
+
+Prend un scanner en entrée (qui doit être formaté selon le format sudoku attendu)
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Un Scanner qui contient la grille de sudoku au format spécifié \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBuilder_a8059b2c00d388a70236d48c3815894bd}\index{Builder@{Builder}!buildFromStringArray@{buildFromStringArray}}
+\index{buildFromStringArray@{buildFromStringArray}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{buildFromStringArray()}{buildFromStringArray()}}
+{\footnotesize\ttfamily \label{classBuilder_a8059b2c00d388a70236d48c3815894bd} 
+void Builder.\+build\+From\+String\+Array (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{ligne\+Courante}{, }\item[{int}]{ypos}{, }\item[{\mbox{\hyperlink{classcomposite_1_1Grid}{Grid}}}]{grid}{}\end{DoxyParamCaption})}
+
+
+
+Fonction de construction auxiliaire qui crée les cellules d\textquotesingle{}une ligne de la grille et les assigne à ses différents composants via la fonction set de la classe Grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ligne\+Courante} & La ligne sous forme de String que l\textquotesingle{}on souhaite créer avec des Cell\+Base (Cell ou Empty\+Cell) \\
+\hline
+{\em ypos} & Le numéro de la ligne courante \\
+\hline
+{\em grid} & La grille de sudoku \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBuilder_a9b683a04d8e86ddab137ba910a4a342a}{build\+Grid()} 
+\end{DoxySeeAlso}
+\Hypertarget{classBuilder_a9b683a04d8e86ddab137ba910a4a342a}\index{Builder@{Builder}!buildGrid@{buildGrid}}
+\index{buildGrid@{buildGrid}!Builder@{Builder}}
+\doxysubsubsection{\texorpdfstring{buildGrid()}{buildGrid()}}
+{\footnotesize\ttfamily \label{classBuilder_a9b683a04d8e86ddab137ba910a4a342a} 
+\mbox{\hyperlink{classcomposite_1_1Grid}{Grid}} Builder.\+build\+Grid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Fonction de construction de la grille de sudoku utilisée par le solver et le context de rules/ Initialise la grille à partir du Scanner à partir duquel le \doxylink{classBuilder}{Builder} est créé 
+
+\begin{DoxyReturn}{Returns}
+Grid La grille de sudoku initialisée 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Grid 
+\end{DoxySeeAlso}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -47,3 +47,8 @@ Singleton pour la pile / le solver ?
 Mettre la solution dans un fichier pour chaque sudoku ?
 
 Doxygen
+
+https://fr.wikipedia.org/wiki/Math%C3%A9matiques_du_sudoku
+NP-Complet
+
+Tableau de 9 cases plutôt qu'ArrayList -> bien pour iterator
