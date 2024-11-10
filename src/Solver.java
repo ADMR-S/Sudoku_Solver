@@ -1,10 +1,10 @@
 import composite.*;
 import composite.cell.Cell;
-import rules.Context;
-import rules.DR0;
-import rules.DR1;
-import rules.DR2;
-import rules.DR3;
+import strategy.Context;
+import strategy.rules.DR0;
+import strategy.rules.DR1;
+import strategy.rules.DR2;
+import strategy.rules.DR3;
 
 import java.io.File;
 import java.io.FileWriter;
