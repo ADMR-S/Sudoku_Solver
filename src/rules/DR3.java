@@ -1,7 +1,12 @@
 package rules;
 import composite.*;
+import composite.cell.CellBase;
+import composite.cell.EmptyCell;
+import composite.composant.Column;
+import composite.composant.Line;
+import composite.composant.Square;
 import pile.Pile;
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 
 public class DR3 extends DeductionRule {
@@ -98,7 +103,7 @@ public class DR3 extends DeductionRule {
         while (!pile.isEmpty()) {
             CellBase cell = pile.pop();
 
-            if (this.execut(cell, grid)) {
+            if (execut(cell, grid)) {
                 System.out.println("DR3.");
                 pile.pushAllRelated(cell, grid);
             } else if (dr1.execut(cell, grid)) {

@@ -1,5 +1,6 @@
 package rules;
 import composite.*;
+import composite.cell.CellBase;
 import pile.Pile;
 
 public abstract class DeductionRule {

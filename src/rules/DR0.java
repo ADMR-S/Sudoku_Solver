@@ -1,5 +1,11 @@
 package rules;
 import composite.*;
+import composite.cell.Cell;
+import composite.cell.CellBase;
+import composite.cell.EmptyCell;
+import composite.composant.Column;
+import composite.composant.Line;
+import composite.composant.Square;
 import pile.Pile;
 
 //Egalement remplacer la cellule des lignes, colonnes et squares par cell en entré pour ne pas à avoir à le faire autre part ?

@@ -1,5 +1,11 @@
 package composite;
 
+import composite.cell.Cell;
+import composite.cell.CellBase;
+import composite.composant.Column;
+import composite.composant.Line;
+import composite.composant.Square;
+
 public class Grid implements Subscriber{
 
     private static Grid instance;
@@ -109,18 +115,6 @@ public class Grid implements Subscriber{
         }
         return output;
     }
-    public String toCSV() {
-        String output = "";
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                output = output.concat(Integer.toString(this.lines[i].getTable()[j].getValue()));
-                output = output.concat(",");
-            }
-            output = output.concat("\n");
-        }
-        output = output.substring(0, output.length()-2);//On retire la dernière virgule
-        return output;
-    }
 
     public boolean checkValidity() {
         for (int i = 0; i < 9; i++) {
@@ -170,6 +164,7 @@ public class Grid implements Subscriber{
         if(nbPossibleValues==0){
             this.isWrong = true;
         }
+        return;
     }
 
     public boolean isWrong(){

@@ -1,5 +1,10 @@
 package pile;
 import composite.*;
+import composite.cell.CellBase;
+import composite.cell.EmptyCell;
+import composite.composant.Column;
+import composite.composant.Line;
+import composite.composant.Square;
 
 
 public class Pile {

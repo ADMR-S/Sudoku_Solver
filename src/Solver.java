@@ -1,4 +1,5 @@
 import composite.*;
+import composite.cell.Cell;
 import rules.Context;
 import rules.DR0;
 import rules.DR1;
@@ -6,28 +7,23 @@ import rules.DR2;
 import rules.DR3;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Arrays;
 
 //PROGRAMME ECRIT PAR FLORENT BELOT ET ADAM MIR-SADJADI
 
 //DERNIERES CHOSES A FAIRE ?
-//Mettre les print sous forme d'assertion ou qque chose comme ça de désactivable et activable
-//Faire fonction de test avec les solutions sous forme d'assert
 //Mettre UML à jour
 //Commenter pour la doc
+//RESOUDRE BUG grile tres difficile reload de la grille
 //Implementer visiteur
+//Verifier gestion d'erreur partout
 //Cleaner code
 //restructurer packages ? (sous-repertoire memento dans composite par ex, renommer rules en strategy... GridSnapshot)
 //Implementer iterator (juste la fonction qui retourne lignes, carrés et colonnes, pas compliqué) et s'en servir dans le builder et la fonction makeSnapshot de Grid
-//Passer tableau valeurs possibles en tableau de booléens
+//Singleton pour pile / solver ?
 
 public class Solver {
-
-    private static final boolean printToFile = false; //Change to true if you want to get the answer in a .txt file
 
     /**
      * MODELE DOC Doxygen (voir fonction main dans le html généré dans doc/)
@@ -45,6 +41,7 @@ public class Solver {
      * @see         Solver
      */
     public static void main(String[] args) throws FileNotFoundException {
+        args = new String[]{"/home/florent/Documents/Master/Software_eng/Sudoku_Solver-main/ressources/grille_tres_difficile1.txt"};
         try {
             for (int k = 0; k < args.length; k++) {//Chaque argument est un fichier .txt qui contient une grille
                 System.out.println("--------------------------------------");
@@ -72,9 +69,6 @@ public class Solver {
                     System.out.println(grid);
                     System.out.println("Sudoku résolu en difficulté facile.");
                     System.out.println("Grille valide : " + grid.checkValidity());
-                    if(printToFile){
-                        printSolutionToFile(args[k], grid);
-                    }
                     continue;
                 }
 
@@ -85,9 +79,6 @@ public class Solver {
                     System.out.println(grid);
                     System.out.println("Sudoku résolu en difficulté moyenne.");
                     System.out.println("Grille valide : " + grid.checkValidity());
-                    if(printToFile){
-                        printSolutionToFile(args[k], grid);
-                    }
                     continue;
                 }
 
@@ -98,21 +89,17 @@ public class Solver {
                     System.out.println(grid);
                     System.out.println("Sudoku résolu en difficulté difficile.");
                     System.out.println("Grille valide : " + grid.checkValidity());
-                    if(printToFile){
-                        printSolutionToFile(args[k], grid);
-                    }
                     continue;
                 }
 
 
-                System.out.println("TRES DIFFICILE.____________________________________________________");
+                System.out.println("TRES DIFFICILE.");
 
                 Memento memento = grid.makeSnapshot();
 
                 //Implémenter la demande à l'utilisateur.
                 Scanner saisie = new Scanner(System.in);
                 while (grid.getCellsToFill() > 0) {
-
                     if(grid.isWrong()== true){
                         System.err.println("HELLOCertaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
                         System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
@@ -132,15 +119,15 @@ public class Solver {
                         x = saisie.nextInt();
                         y = saisie.nextInt();
                     }
-
-                    /*if (grid.get(x, y) instanceof EmptyCell cell && cell.numberPossibleValue() == 0) {
+/*
+                    if (grid.get(x, y) instanceof EmptyCell cell && cell.numberPossibleValue() == 0) {
                         System.out.println("isWrong : " + grid.isWrong());
                         System.err.println("Cette cellule n'a pas de valeur possible, une mauvaise valeur à été rentré veuillez relancer le solver.");
                         System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la première saisie manuelle ou quittez le programme avec Ctrl+C.");
                         grid.restore(memento);
                         saisie.next();
-                    }*/
-
+                    }
+*/
                     //else {
                     System.out.print("Les valeurs possible pour cette cellule sont : ");
                     for (int i = 0; i < 9; i++) {
@@ -181,9 +168,6 @@ public class Solver {
                 System.out.println(grid);
                 System.out.println("Sudoku résolu avec une difficulté très difficiles.");
                 System.out.println("Grille valide : " + grid.checkValidity());
-                if(printToFile){
-                    printSolutionToFile(args[k], grid);
-                }
             }
             return;
         }
@@ -195,38 +179,11 @@ public class Solver {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Fonction utilitaire pour recevoir un entier depuis l'entrée standard
-     *
-     * @param  sc   Un Scanner ouvert sur l'entrée standard
-     * @return      Un entier saisi par l'utilisateur
-     */
     private static int getInt(Scanner sc) {
         while (!sc.hasNextInt()) {
             System.out.println("Veuillez entrer un entier.");
             sc.next();
         }
         return sc.nextInt();
-    }
-    private static void printSolutionToFile(String sourceName, Grid grid){
-        try {
-            String name = sourceName.replace(".txt", "Answer.txt");
-            File outputFile = new File(name);
-            if (outputFile.createNewFile()) {
-                System.out.println("File created: " + outputFile.getName());
-            } else {
-                System.err.println("Le fichier existe déjà");
-            }
-            FileWriter myWriter = new FileWriter(name);
-            myWriter.write(grid.toCSV());
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        }
-        catch (IOException e) {
-            System.err.println("Impossible de créer ou modifier le fichier");
-            e.printStackTrace();
-        }
-        return;
     }
 }

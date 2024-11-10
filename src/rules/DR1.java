@@ -1,5 +1,8 @@
 package rules;
 import composite.*;
+import composite.cell.Cell;
+import composite.cell.CellBase;
+import composite.cell.EmptyCell;
 import pile.Pile;
 
 public class DR1 extends DeductionRule {
