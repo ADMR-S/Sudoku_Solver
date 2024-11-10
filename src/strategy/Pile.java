@@ -17,12 +17,23 @@ public class Pile {
         this.stack = new CellBase[capacity];
         this.size = 0;
     }
+    /**
+     * @return true si la pile est vide, false sinon
+     */
     public boolean isEmpty() {
         return this.size == 0;
     }
+    /**
+     * @return true si la pile est pleine, false sinon
+     */
     public boolean isFull() {
         return this.size == this.capacity;
     }
+    /**
+     * Ajoute une cellule à la pile si elle n'est pas déjà dedans.
+     *
+     * @param cell la cellule à ajouter
+     */
     public void push(CellBase cell) {
         //Check if Cell already in stack
         for (int i = 0; i < this.size; i++) {
@@ -37,6 +48,11 @@ public class Pile {
         }
         this.stack[this.size++] = cell;
     }
+    /**
+     * Retire la cellule au sommet de la pile.
+     *
+     * @return la cellule retirée
+     */
     public CellBase pop() {
         if (this.isEmpty()) {
             System.out.println("Stack is empty");
@@ -44,6 +60,11 @@ public class Pile {
         }
         return this.stack[--this.size];
     }
+    /**
+     * Retourne la cellule au sommet de la pile.
+     *
+     * @return la cellule au sommet de la pile
+     */
     public CellBase head() {
         if (this.isEmpty()) {
             System.out.println("Stack is empty");
@@ -51,19 +72,36 @@ public class Pile {
         }
         return this.stack[this.size - 1];
     }
+    /**
+     * Retourne la taille de la pile.
+     *
+     * @return la taille de la pile
+     */
     public int getSize() {
         return this.size;
     }
+    /**
+     * Retourne la capacité de la pile.
+     *
+     * @return la capacité de la pile
+     */
     public int getCapacity() {
         return this.capacity;
     }
+    /**
+     * Affiche la pile.
+     */
     public void display() {
         for (int i = 0; i < this.size; i++) {
             System.out.println(this.stack[i]);
         }
     }
 
-
+    /**
+     * Empile toutes les cellules vides de la grille.
+     *
+     * @param grid la grille de jeu
+     */
     public void stackAllEmpty(Grid grid) {//Stack all EmptyCells in a Pile
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -74,6 +112,11 @@ public class Pile {
         }
         return;
     }
+    /**
+     * Empile toutes les cellules non vides de la grille.
+     *
+     * @param grid la grille de jeu
+     */
     public void stackAllNonEmpty(Grid grid) {//Stack all non-empty cells in a Pile
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -83,6 +126,13 @@ public class Pile {
             }
         }
     }
+
+    /**
+     * Empile toutes les cellules vides appartenant à la même ligne, colonne ou carré que la cellule donnée.
+     *
+     * @param grid la grille de jeu
+     * @param cell la cellule donnée
+     */
     public void pushAllRelated(CellBase cell, Grid grid) { // push on the stack all EmptyCell in the same Line/Column/Square
         Line l = grid.getLine(cell.getYpos());
         Column c = grid.getColumn(cell.getXpos());
@@ -98,7 +148,6 @@ public class Pile {
                 push(empty_cell);
             }
         }
-        return;
     }
 
     

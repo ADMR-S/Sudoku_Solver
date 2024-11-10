@@ -17,18 +17,38 @@ public class Snapshot implements Memento{
         this.cellsToFill = cellsToFill;
     }
 
+    /**
+     * Renvoie les lignes de la grille que le memento a sauvegardé.
+     *
+     * @return les lignes
+     */
     public Line[] getLines() {
         return lines;
     }
 
+    /**
+     * Renvoie les colonnes de la grille que le memento a sauvegardé.
+     *
+     * @return les colonnes
+     */
     public Column[] getColumns() {
         return columns;
     }
 
+    /**
+     * Renvoie les carrés de la grille que le memento a sauvegardé.
+     *
+     * @return les carrés
+     */
     public Square[] getSquares() {
         return squares;
     }
 
+    /**
+     * Renvoie le nombre de cases à remplir de la grille que le memento a sauvegardé.
+     *
+     * @return le nombre de cases à remplir
+     */
     public int getCellsToFill() {
         return cellsToFill;
     }
