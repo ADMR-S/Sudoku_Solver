@@ -13,26 +13,26 @@ Inheritance diagram for composite.\+cell.\+Cell\+:\begin{figure}[H]
 {\bfseries Cell} (int xpos, int ypos, int value)
 \item 
 int \mbox{\hyperlink{classcomposite_1_1cell_1_1Cell_a39838f1986ce4acec3075a929f07af5c}{get\+Value}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retourne la valeur de la cellule. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classcomposite_1_1cell_1_1Cell_a99c56d7c8f3583bd6ed8592bccea4bcf}{to\+String}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retourne un String affichant la position et la valeur de la cellule. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcomposite_1_1cell_1_1Cell}{Cell}} \mbox{\hyperlink{classcomposite_1_1cell_1_1Cell_a15046abab0bc6110215b8db3cf69936d}{get\+Copy}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retourne une copy de la cellule avec les mêmes valeurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}}
 \begin{DoxyCompactItemize}
 \item 
 {\bfseries Cell\+Base} (int xpos, int ypos)
 \item 
-int {\bfseries get\+Xpos} ()
-\item 
-void {\bfseries set\+Xpos} (int xpos)
-\item 
-int {\bfseries get\+Ypos} ()
-\item 
-void {\bfseries set\+Ypos} (int ypos)
-\item 
-boolean {\bfseries check\+Possible\+Value} (int i)
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_ad47938ad8591a35c6428575a9c0d8ea6}{get\+Xpos}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un entier représentant la position x de la cellule. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_abf84cef94d15f2e6074b0106213ae381}{set\+Xpos}} (int xpos)
+\begin{DoxyCompactList}\small\item\em Set la position x de la cellule. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_ad70368a11f4f32da34a581d97552f0a9}{get\+Ypos}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un entier représentant la position y de la cellule. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_a8de6f1fedd202a65233b93038b512087}{set\+Ypos}} (int ypos)
+\begin{DoxyCompactList}\small\item\em Set la position y de la cellule. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_ac0a5a3c3b405698fa50e609a7ed955a3}{check\+Possible\+Value}} (int i)
+\begin{DoxyCompactList}\small\item\em Retourne un boolean, vrais si la valeur i est possible pour la cellule, faux sinon. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -58,7 +58,14 @@ int {\bfseries ypos}
 
 
 
-Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}.
+Retourne une copy de la cellule avec les mêmes valeurs. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classcomposite_1_1cell_1_1Cell}{Cell} une copy de la cellule. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_a8acba0e798e88acf8075b3559d01ac31}{composite.\+cell.\+Cell\+Base}}.
 
 \Hypertarget{classcomposite_1_1cell_1_1Cell_a39838f1986ce4acec3075a929f07af5c}\index{composite.cell.Cell@{composite.cell.Cell}!getValue@{getValue}}
 \index{getValue@{getValue}!composite.cell.Cell@{composite.cell.Cell}}
@@ -68,7 +75,14 @@ int composite.\+cell.\+Cell.\+get\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyP
 
 
 
-Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}.
+Retourne la valeur de la cellule. 
+
+\begin{DoxyReturn}{Returns}
+int un entier représentant la valeur de la cellule 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_abd6c277c31869dbfd16a4573a178bc6e}{composite.\+cell.\+Cell\+Base}}.
 
 \Hypertarget{classcomposite_1_1cell_1_1Cell_a99c56d7c8f3583bd6ed8592bccea4bcf}\index{composite.cell.Cell@{composite.cell.Cell}!toString@{toString}}
 \index{toString@{toString}!composite.cell.Cell@{composite.cell.Cell}}
@@ -78,7 +92,14 @@ String composite.\+cell.\+Cell.\+to\+String (\begin{DoxyParamCaption}{}{}\end{Do
 
 
 
-Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}.
+Retourne un String affichant la position et la valeur de la cellule. 
+
+\begin{DoxyReturn}{Returns}
+String un String représentant la cellule 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_af979ce29a1c09615075f4c46f3bff46e}{composite.\+cell.\+Cell\+Base}}.
 
 
 

@@ -9,30 +9,118 @@ Inheritance diagram for composite.\+composant.\+Composant\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classcomposite_1_1composant_1_1Composant_aca00f3a83154c238b31a5505f087be08}\label{classcomposite_1_1composant_1_1Composant_aca00f3a83154c238b31a5505f087be08} 
-\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}\mbox{[}$\,$\mbox{]} {\bfseries get\+Table} ()
-\item 
-\Hypertarget{classcomposite_1_1composant_1_1Composant_ae6f9577a0bcab44b01a546836a33ea63}\label{classcomposite_1_1composant_1_1Composant_ae6f9577a0bcab44b01a546836a33ea63} 
-void {\bfseries set\+Table} (\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}\mbox{[}$\,$\mbox{]} table)
-\item 
-\Hypertarget{classcomposite_1_1composant_1_1Composant_af49db0c1c5783c04d4ab84dc107044af}\label{classcomposite_1_1composant_1_1Composant_af49db0c1c5783c04d4ab84dc107044af} 
-void {\bfseries set\+Table\+Cell} (\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}} cell, int index)
-\item 
-\Hypertarget{classcomposite_1_1composant_1_1Composant_a6fc42aa7c672ee044e52e553419b7fae}\label{classcomposite_1_1composant_1_1Composant_a6fc42aa7c672ee044e52e553419b7fae} 
-\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}} {\bfseries get} (int n)
-\item 
-\Hypertarget{classcomposite_1_1composant_1_1Composant_ab6b9c28bc082fb3fad7f7ebcf23ba98b}\label{classcomposite_1_1composant_1_1Composant_ab6b9c28bc082fb3fad7f7ebcf23ba98b} 
-String {\bfseries to\+String} ()
-\item 
-\Hypertarget{classcomposite_1_1composant_1_1Composant_a83d6e257d773158e5baffda451b1ca2f}\label{classcomposite_1_1composant_1_1Composant_a83d6e257d773158e5baffda451b1ca2f} 
-boolean {\bfseries check\+Validity} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcomposite_1_1composant_1_1Composant_aca00f3a83154c238b31a5505f087be08}{get\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un tableau de Cell\+Base représentant les cellules du composant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomposite_1_1composant_1_1Composant_ae6f9577a0bcab44b01a546836a33ea63}{set\+Table}} (\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}\mbox{[}$\,$\mbox{]} table)
+\begin{DoxyCompactList}\small\item\em Set le tableau de Cell\+Base représentant les cellules du composant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomposite_1_1composant_1_1Composant_af49db0c1c5783c04d4ab84dc107044af}{set\+Table\+Cell}} (\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}} cell, int index)
+\begin{DoxyCompactList}\small\item\em Set la cellule cell à l\textquotesingle{}index index du tableau de Cell\+Base. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}} \mbox{\hyperlink{classcomposite_1_1composant_1_1Composant_a6fc42aa7c672ee044e52e553419b7fae}{get}} (int n)
+\begin{DoxyCompactList}\small\item\em Retourne la cellule à l\textquotesingle{}index n du tableau de Cell\+Base. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcomposite_1_1composant_1_1Composant_ab6b9c28bc082fb3fad7f7ebcf23ba98b}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un String affichant les valeurs des cellules du composant. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcomposite_1_1composant_1_1Composant_a83d6e257d773158e5baffda451b1ca2f}{check\+Validity}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un boolean, vrai si le composant est valide, faux sinon. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classcomposite_1_1composant_1_1Composant_a1889e9078ff1a278eb0d68c3764feb2f}\label{classcomposite_1_1composant_1_1Composant_a1889e9078ff1a278eb0d68c3764feb2f} 
 \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}\mbox{[}$\,$\mbox{]} {\bfseries table} = new \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}\mbox{[}9\mbox{]}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcomposite_1_1composant_1_1Composant_a83d6e257d773158e5baffda451b1ca2f}\index{composite.composant.Composant@{composite.composant.Composant}!checkValidity@{checkValidity}}
+\index{checkValidity@{checkValidity}!composite.composant.Composant@{composite.composant.Composant}}
+\doxysubsubsection{\texorpdfstring{checkValidity()}{checkValidity()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1composant_1_1Composant_a83d6e257d773158e5baffda451b1ca2f} 
+boolean composite.\+composant.\+Composant.\+check\+Validity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un boolean, vrai si le composant est valide, faux sinon. 
+
+Un composant est valide si toutes ses cellules ont des valeurs différentes.
+
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\Hypertarget{classcomposite_1_1composant_1_1Composant_a6fc42aa7c672ee044e52e553419b7fae}\index{composite.composant.Composant@{composite.composant.Composant}!get@{get}}
+\index{get@{get}!composite.composant.Composant@{composite.composant.Composant}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1composant_1_1Composant_a6fc42aa7c672ee044e52e553419b7fae} 
+\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}} composite.\+composant.\+Composant.\+get (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Retourne la cellule à l\textquotesingle{}index n du tableau de Cell\+Base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & int l\textquotesingle{}index de la cellule à retourner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cell\+Base 
+\end{DoxyReturn}
+\Hypertarget{classcomposite_1_1composant_1_1Composant_aca00f3a83154c238b31a5505f087be08}\index{composite.composant.Composant@{composite.composant.Composant}!getTable@{getTable}}
+\index{getTable@{getTable}!composite.composant.Composant@{composite.composant.Composant}}
+\doxysubsubsection{\texorpdfstring{getTable()}{getTable()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1composant_1_1Composant_aca00f3a83154c238b31a5505f087be08} 
+\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}\mbox{[}$\,$\mbox{]} composite.\+composant.\+Composant.\+get\+Table (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un tableau de Cell\+Base représentant les cellules du composant. 
+
+\begin{DoxyReturn}{Returns}
+Cell\+Base\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{classcomposite_1_1composant_1_1Composant_ae6f9577a0bcab44b01a546836a33ea63}\index{composite.composant.Composant@{composite.composant.Composant}!setTable@{setTable}}
+\index{setTable@{setTable}!composite.composant.Composant@{composite.composant.Composant}}
+\doxysubsubsection{\texorpdfstring{setTable()}{setTable()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1composant_1_1Composant_ae6f9577a0bcab44b01a546836a33ea63} 
+void composite.\+composant.\+Composant.\+set\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}\mbox{[}$\,$\mbox{]}}]{table}{}\end{DoxyParamCaption})}
+
+
+
+Set le tableau de Cell\+Base représentant les cellules du composant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Cell\+Base\mbox{[}\mbox{]} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcomposite_1_1composant_1_1Composant_af49db0c1c5783c04d4ab84dc107044af}\index{composite.composant.Composant@{composite.composant.Composant}!setTableCell@{setTableCell}}
+\index{setTableCell@{setTableCell}!composite.composant.Composant@{composite.composant.Composant}}
+\doxysubsubsection{\texorpdfstring{setTableCell()}{setTableCell()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1composant_1_1Composant_af49db0c1c5783c04d4ab84dc107044af} 
+void composite.\+composant.\+Composant.\+set\+Table\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}}}]{cell}{, }\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Set la cellule cell à l\textquotesingle{}index index du tableau de Cell\+Base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & Cell\+Base la cellule à set \\
+\hline
+{\em index} & int l\textquotesingle{}index de la cellule à set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcomposite_1_1composant_1_1Composant_ab6b9c28bc082fb3fad7f7ebcf23ba98b}\index{composite.composant.Composant@{composite.composant.Composant}!toString@{toString}}
+\index{toString@{toString}!composite.composant.Composant@{composite.composant.Composant}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1composant_1_1Composant_ab6b9c28bc082fb3fad7f7ebcf23ba98b} 
+String composite.\+composant.\+Composant.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un String affichant les valeurs des cellules du composant. 
+
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

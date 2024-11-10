@@ -12,30 +12,22 @@ Inheritance diagram for composite.\+cell.\+Cell\+Base\+:\begin{figure}[H]
 \Hypertarget{classcomposite_1_1cell_1_1CellBase_a6a7d00fb44e25ca437a97e816870be77}\label{classcomposite_1_1cell_1_1CellBase_a6a7d00fb44e25ca437a97e816870be77} 
 {\bfseries Cell\+Base} (int xpos, int ypos)
 \item 
-\Hypertarget{classcomposite_1_1cell_1_1CellBase_abd6c277c31869dbfd16a4573a178bc6e}\label{classcomposite_1_1cell_1_1CellBase_abd6c277c31869dbfd16a4573a178bc6e} 
-int {\bfseries get\+Value} ()
-\item 
-\Hypertarget{classcomposite_1_1cell_1_1CellBase_ad47938ad8591a35c6428575a9c0d8ea6}\label{classcomposite_1_1cell_1_1CellBase_ad47938ad8591a35c6428575a9c0d8ea6} 
-int {\bfseries get\+Xpos} ()
-\item 
-\Hypertarget{classcomposite_1_1cell_1_1CellBase_abf84cef94d15f2e6074b0106213ae381}\label{classcomposite_1_1cell_1_1CellBase_abf84cef94d15f2e6074b0106213ae381} 
-void {\bfseries set\+Xpos} (int xpos)
-\item 
-\Hypertarget{classcomposite_1_1cell_1_1CellBase_ad70368a11f4f32da34a581d97552f0a9}\label{classcomposite_1_1cell_1_1CellBase_ad70368a11f4f32da34a581d97552f0a9} 
-int {\bfseries get\+Ypos} ()
-\item 
-\Hypertarget{classcomposite_1_1cell_1_1CellBase_a8de6f1fedd202a65233b93038b512087}\label{classcomposite_1_1cell_1_1CellBase_a8de6f1fedd202a65233b93038b512087} 
-void {\bfseries set\+Ypos} (int ypos)
-\item 
-\Hypertarget{classcomposite_1_1cell_1_1CellBase_ac0a5a3c3b405698fa50e609a7ed955a3}\label{classcomposite_1_1cell_1_1CellBase_ac0a5a3c3b405698fa50e609a7ed955a3} 
-boolean {\bfseries check\+Possible\+Value} (int i)
-\item 
-\Hypertarget{classcomposite_1_1cell_1_1CellBase_a8acba0e798e88acf8075b3559d01ac31}\label{classcomposite_1_1cell_1_1CellBase_a8acba0e798e88acf8075b3559d01ac31} 
-abstract \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}} {\bfseries get\+Copy} ()
-\item 
-\Hypertarget{classcomposite_1_1cell_1_1CellBase_af979ce29a1c09615075f4c46f3bff46e}\label{classcomposite_1_1cell_1_1CellBase_af979ce29a1c09615075f4c46f3bff46e} 
-String {\bfseries to\+String} ()
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_abd6c277c31869dbfd16a4573a178bc6e}{get\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un entier représentant la valeur de la cellule (0 pour une cellule vide). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_ad47938ad8591a35c6428575a9c0d8ea6}{get\+Xpos}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un entier représentant la position x de la cellule. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_abf84cef94d15f2e6074b0106213ae381}{set\+Xpos}} (int xpos)
+\begin{DoxyCompactList}\small\item\em Set la position x de la cellule. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_ad70368a11f4f32da34a581d97552f0a9}{get\+Ypos}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un entier représentant la position y de la cellule. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_a8de6f1fedd202a65233b93038b512087}{set\+Ypos}} (int ypos)
+\begin{DoxyCompactList}\small\item\em Set la position y de la cellule. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_ac0a5a3c3b405698fa50e609a7ed955a3}{check\+Possible\+Value}} (int i)
+\begin{DoxyCompactList}\small\item\em Retourne un boolean, vrais si la valeur i est possible pour la cellule, faux sinon. \end{DoxyCompactList}\item 
+abstract \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}} \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_a8acba0e798e88acf8075b3559d01ac31}{get\+Copy}} ()
+\begin{DoxyCompactList}\small\item\em Retourne une copy de la cellule. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase_af979ce29a1c09615075f4c46f3bff46e}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un String affichant la position de la cellule. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,6 +37,133 @@ int {\bfseries xpos}
 \Hypertarget{classcomposite_1_1cell_1_1CellBase_a42433ad5a0f0377f9165220e791e3239}\label{classcomposite_1_1cell_1_1CellBase_a42433ad5a0f0377f9165220e791e3239} 
 int {\bfseries ypos}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcomposite_1_1cell_1_1CellBase_ac0a5a3c3b405698fa50e609a7ed955a3}\index{composite.cell.CellBase@{composite.cell.CellBase}!checkPossibleValue@{checkPossibleValue}}
+\index{checkPossibleValue@{checkPossibleValue}!composite.cell.CellBase@{composite.cell.CellBase}}
+\doxysubsubsection{\texorpdfstring{checkPossibleValue()}{checkPossibleValue()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1CellBase_ac0a5a3c3b405698fa50e609a7ed955a3} 
+boolean composite.\+cell.\+Cell\+Base.\+check\+Possible\+Value (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un boolean, vrais si la valeur i est possible pour la cellule, faux sinon. 
+
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell_abf4ab53e181ba9be03e63567fa03cc70}{composite.\+cell.\+Empty\+Cell}}.
+
+\Hypertarget{classcomposite_1_1cell_1_1CellBase_a8acba0e798e88acf8075b3559d01ac31}\index{composite.cell.CellBase@{composite.cell.CellBase}!getCopy@{getCopy}}
+\index{getCopy@{getCopy}!composite.cell.CellBase@{composite.cell.CellBase}}
+\doxysubsubsection{\texorpdfstring{getCopy()}{getCopy()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1CellBase_a8acba0e798e88acf8075b3559d01ac31} 
+abstract \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base}} composite.\+cell.\+Cell\+Base.\+get\+Copy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Retourne une copy de la cellule. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classcomposite_1_1cell_1_1CellBase}{Cell\+Base} 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classcomposite_1_1cell_1_1Cell_a15046abab0bc6110215b8db3cf69936d}{composite.\+cell.\+Cell}}, and \mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell_ab40d233db34f12bfee012e185086e829}{composite.\+cell.\+Empty\+Cell}}.
+
+\Hypertarget{classcomposite_1_1cell_1_1CellBase_abd6c277c31869dbfd16a4573a178bc6e}\index{composite.cell.CellBase@{composite.cell.CellBase}!getValue@{getValue}}
+\index{getValue@{getValue}!composite.cell.CellBase@{composite.cell.CellBase}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1CellBase_abd6c277c31869dbfd16a4573a178bc6e} 
+int composite.\+cell.\+Cell\+Base.\+get\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un entier représentant la valeur de la cellule (0 pour une cellule vide). 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classcomposite_1_1cell_1_1Cell_a39838f1986ce4acec3075a929f07af5c}{composite.\+cell.\+Cell}}.
+
+\Hypertarget{classcomposite_1_1cell_1_1CellBase_ad47938ad8591a35c6428575a9c0d8ea6}\index{composite.cell.CellBase@{composite.cell.CellBase}!getXpos@{getXpos}}
+\index{getXpos@{getXpos}!composite.cell.CellBase@{composite.cell.CellBase}}
+\doxysubsubsection{\texorpdfstring{getXpos()}{getXpos()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1CellBase_ad47938ad8591a35c6428575a9c0d8ea6} 
+int composite.\+cell.\+Cell\+Base.\+get\+Xpos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un entier représentant la position x de la cellule. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{classcomposite_1_1cell_1_1CellBase_ad70368a11f4f32da34a581d97552f0a9}\index{composite.cell.CellBase@{composite.cell.CellBase}!getYpos@{getYpos}}
+\index{getYpos@{getYpos}!composite.cell.CellBase@{composite.cell.CellBase}}
+\doxysubsubsection{\texorpdfstring{getYpos()}{getYpos()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1CellBase_ad70368a11f4f32da34a581d97552f0a9} 
+int composite.\+cell.\+Cell\+Base.\+get\+Ypos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un entier représentant la position y de la cellule. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{classcomposite_1_1cell_1_1CellBase_abf84cef94d15f2e6074b0106213ae381}\index{composite.cell.CellBase@{composite.cell.CellBase}!setXpos@{setXpos}}
+\index{setXpos@{setXpos}!composite.cell.CellBase@{composite.cell.CellBase}}
+\doxysubsubsection{\texorpdfstring{setXpos()}{setXpos()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1CellBase_abf84cef94d15f2e6074b0106213ae381} 
+void composite.\+cell.\+Cell\+Base.\+set\+Xpos (\begin{DoxyParamCaption}\item[{int}]{xpos}{}\end{DoxyParamCaption})}
+
+
+
+Set la position x de la cellule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xpos} & int \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcomposite_1_1cell_1_1CellBase_a8de6f1fedd202a65233b93038b512087}\index{composite.cell.CellBase@{composite.cell.CellBase}!setYpos@{setYpos}}
+\index{setYpos@{setYpos}!composite.cell.CellBase@{composite.cell.CellBase}}
+\doxysubsubsection{\texorpdfstring{setYpos()}{setYpos()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1CellBase_a8de6f1fedd202a65233b93038b512087} 
+void composite.\+cell.\+Cell\+Base.\+set\+Ypos (\begin{DoxyParamCaption}\item[{int}]{ypos}{}\end{DoxyParamCaption})}
+
+
+
+Set la position y de la cellule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ypos} & int \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcomposite_1_1cell_1_1CellBase_af979ce29a1c09615075f4c46f3bff46e}\index{composite.cell.CellBase@{composite.cell.CellBase}!toString@{toString}}
+\index{toString@{toString}!composite.cell.CellBase@{composite.cell.CellBase}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1CellBase_af979ce29a1c09615075f4c46f3bff46e} 
+String composite.\+cell.\+Cell\+Base.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un String affichant la position de la cellule. 
+
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classcomposite_1_1cell_1_1Cell_a99c56d7c8f3583bd6ed8592bccea4bcf}{composite.\+cell.\+Cell}}, and \mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell_a575fa1089c34f34356b6c2374ee049f6}{composite.\+cell.\+Empty\+Cell}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
