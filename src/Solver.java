@@ -16,15 +16,7 @@ import java.util.logging.Level;
 
 //PROGRAMME ECRIT PAR FLORENT BELOT ET ADAM MIR-SADJADI
 
-//DERNIERES CHOSES A FAIRE ?
-//Mettre les print sous forme d'assertion ou qque chose comme ça de désactivable et activable
-//Fonctions de tests ? Assertions ? (assert !grid.isWrong() par ex)
-//Commenter pour la doc
-//Implementer visiteur
-//Cleaner code
-//Passer tableau valeurs possibles en tableau de booléens
-//Mettre doc en ligne
-//Rendre le README propre
+//Documentation at https://admr-s.github.io/Sudoku_Solver/
 
 public class Solver {
 
