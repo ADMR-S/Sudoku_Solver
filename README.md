@@ -2,7 +2,7 @@
 
 Programme conçu et implémenté par Adam Mir-sadjadi et Florent Bélot
 
-Documentation at https://admr-s.github.io/Sudoku_Solver/docs/index.html
+Documentation at https://admr-s.github.io/Sudoku_Solver/
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Commandes Terminal :
