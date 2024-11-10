@@ -1,12 +1,13 @@
 package composite;
 
-public class Grid{
+public class Grid implements Subscriber{
 
     private static Grid instance;
     private Line[] lines;
     private Column[] columns;
     private Square[] squares;
     private int cellsToFill;
+    private boolean isWrong;
 
     private Grid() {}//Constructeur déplacé dans Builder.java
 
@@ -77,15 +78,34 @@ public class Grid{
         // Mettre cette boucle dans une classe Printer ? ou overkill?
         // (Peut-être utile quand on aura les classes lignes, colonnes etc...)
         output = output.concat("\nGrid :\n");
+        output = output.concat("           x     \n");
+        output = output.concat("      012 345 678\n");
+        output = output.concat("      vvv vvv vvv\n");
+        output = output.concat("      ___________\n");
         for (int i = 0; i < 9; i++) {
+            if (i==4){
+                output = output.concat("y 4> |");
+            }
+            else {
+                output = output.concat("  " + Integer.toString(i) + "> |");
+            }
             for (int j = 0; j < 9; j++) {
                 if (this.lines[i].getTable()[j] instanceof Cell cell) {
                     output = output.concat(Integer.toString(cell.getValue()));
                 } else {
                     output = output.concat(" ");
                 }
+                if((j+1)%3 ==0){
+                    output = output.concat("|");
+                }
             }
             output = output.concat("\n");
+            if((i+1)%3 ==0 && i!=8){
+                output = output.concat("     |---|---|---|\n");
+            }
+            if (i==8){
+                output = output.concat("      ----------- \n");
+            }
         }
         return output;
     }
@@ -109,7 +129,7 @@ public class Grid{
             columnsCopy[k] = new Column();
             squaresCopy[k] = new Square();
         }
-        //Répétition code set(...) ci-dessous, encapsuler ?
+        //Répétition code set(...) ci-dessous, encapsuler ? ITERATOR ?
         for (int x = 0; x<9; x++){
             for(int y = 0; y<9; y++){
                 CellBase cellOrEmptyCellCopy = this.lines[y].getTable()[x].getCopy();
@@ -127,7 +147,25 @@ public class Grid{
         this.columns = memento.getColumns();
         this.squares = memento.getSquares();
         this.cellsToFill = memento.getCellsToFill();
+        this.isWrong = false;
+
+        memento = this.makeSnapshot(); //On remplace l'ancienne copie par une nouvelle
 
         return;
+    }
+
+    public void update(int nbPossibleValues){
+        if(nbPossibleValues==0){
+            this.isWrong = true;
+        }
+        return;
+    }
+
+    public boolean isWrong(){
+        return this.isWrong;
+    }
+
+    public void setIsWrong(boolean wrong) {
+        isWrong = wrong;
     }
 }

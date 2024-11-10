@@ -15,6 +15,7 @@ public class Builder{
         grid.setColumns(new Column[9]);
         grid.setSquares(new Square[9]);
         grid.setCellsToFill(81);
+        grid.setIsWrong(false);
         for (int i = 0; i < 9; i++) {
             grid.setLineValue(new Line(), i);
             grid.setColumnValue(new Column(), i);
@@ -65,7 +66,9 @@ public class Builder{
                 CellBase newCell;
 
                 if (valeurCourante == 0){ //Si la case est vide
-                    newCell = new EmptyCell(i, ypos);
+                    EmptyCell emptyCell = new EmptyCell(i, ypos);//En deux temps pour pouvoir souscrire. Visiteur ?
+                    emptyCell.subscribe(grid);
+                    newCell = emptyCell;
                 }
                 else{ //Si la case contient une valeur
                     newCell = new Cell(i, ypos, valeurCourante);

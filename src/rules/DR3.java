@@ -29,7 +29,7 @@ public class DR3 extends DeductionRule {
                 System.out.println("PROBLEME");
             }
             // Pour toutes les valeurs des cellules de la même ligne, colonne ou carré on vérifie si elles sont égales à celles de la cellule.
-            // Puis si elles sont égale on retire ces valeurs des autres cellules.
+            // Puis si elles sont égales on retire ces valeurs des autres cellules.
             // Le code est similaire mais légèrement différent donc difficilement factorisable en une fonction.
             for (int i = 0; i < 9; i++) {
                 if (l.get(i) instanceof EmptyCell elt) {

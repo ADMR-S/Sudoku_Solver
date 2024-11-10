@@ -29,7 +29,6 @@ Le Solver pourrait être le maillon principal d'une Chain of Responsibility entr
 Design Pattern à implémenter :
 - Visiteur (éviter instanceof)
 - Observateur
-- Memento
 - Iterator (remplacerait le composite et renverrait les lignes, colonnes et carrés de la grille)
 - Factory pour les cellules et les composants
 - Revoir le composite (passer grid en composant, envisager comment passer Cell et EmptyCell en composant ?)
@@ -38,14 +37,10 @@ Design Pattern à implémenter :
 Observer : vérifie si des cellules n'ont plus de valeur possble, auquel cas prévient le solver et déclenche les memento pour recharger la grille pré-complétée
 Pourrait prévenir le solver pour qu'il déclenche la DR1 quand on fait tomber le nombre de valeurs possibles à 1, ou la DR2 si condition remplie, ou DR3...
 
-Strategy : créer classe context et modifier les DR (incorporer solveWithDRX dans la strategy)
-
 Itérateur qui retourne tous les carrés, toutes les lignes ou toutes les colonnes pour éviter le composite et la duplication d'infos (on aurait juste la grille représentée par une HashMap ((xpos, ypos), valeur) et des méthodes d'iterator pour chopper les carrés, lignes et colonnes)
 
-Utilliser une librairie pour la Pile plutôt que coder la classe nous-même ?
 Singleton pour la pile / le solver ?
-Pb quand plusieurs fichiers -> La taille de la pile la seconde fois ne fait pas de sens (-38 par exemple)
 
 Mettre la solution dans un fichier pour chaque sudoku ?
 
-Intérêt de la pile plutôt qu'une ArrayList ?
+Empiler d'abord les cellules qui ont le moins de valeurs possibles grâce à l'Observer ?

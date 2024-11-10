@@ -8,6 +8,9 @@ import rules.DR3;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Arrays;
+
+//PROGRAMME ECRIT PAR FLORENT BELOT ET ADAM MIR-SADJADI
 
 //Idées (voir commentaires dans code):
 //Gérer crash si mauvaise entrée utilisateur (input mismatch). Ex : String au lieu de int
@@ -16,7 +19,6 @@ import java.util.Scanner;
 public class Solver {
 
     //Transformer en singleton
-    private int cellsToFill; // Plutôt une pile qu'un entier
 
     public static void main(String[] args) throws FileNotFoundException {
         try {
@@ -86,42 +88,53 @@ public class Solver {
                     x = Solver.getInt(saisie);
                     y = Solver.getInt(saisie);
                     while ((0 > x || x > 8) || (0 > y || y > 8) || grid.get(x, y).getValue() != 0) {
-                        System.out.println("Ces coordonnées ne corresponde pas à une cellule vide. Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
+                        System.err.println("Ces coordonnées ne corresponde pas à une cellule vide. Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
                         x = saisie.nextInt();
                         y = saisie.nextInt();
                     }
-
+/*
                     if (grid.get(x, y) instanceof EmptyCell cell && cell.numberPossibleValue() == 0) {
-                        System.out.println("Cette cellule n'a pas de valeur possible, une mauvaise valeur à été rentré veuillez relancer le solver.");
-                        System.out.println("Appuyez sur une touche pour recharger l'état de la grille avant la première saisie manuelle ou quittez le programme avec Ctrl+C.");
+                        System.out.println("isWrong : " + grid.isWrong());
+                        System.err.println("Cette cellule n'a pas de valeur possible, une mauvaise valeur à été rentré veuillez relancer le solver.");
+                        System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la première saisie manuelle ou quittez le programme avec Ctrl+C.");
                         grid.restore(memento);
-                        memento = grid.makeSnapshot(); //On refait une copie p
-                        saisie.next();// pour le prochain reload
+                        saisie.next();
                     }
-                    else {
-                        System.out.print("Les valeurs possible pour cette cellule sont : ");
-                        for (int i = 0; i < 9; i++) {
-                            if (grid.get(x, y).checkPossibleValue(i + 1)) {
-                                System.out.print(i + 1 + " ");
-                            }
+*/
+                    //else {
+                    System.out.print("Les valeurs possible pour cette cellule sont : ");
+                    for (int i = 0; i < 9; i++) {
+                        if (grid.get(x, y).checkPossibleValue(i + 1)) {
+                            System.out.print(i + 1 + " ");
                         }
-                        System.out.println();
-                        System.out.println("Entrez la valeur que vous voulez mettre dans cette cellule : ");
-                        int value = Solver.getInt(saisie);
-                        while (value < 1 || value > 9 || !grid.get(x, y).checkPossibleValue(value)) {
-                            System.out.println("La valeur doit être comprise entre 1 et 9 et être une valeur possible pour la cellule. Entrez la valeur que vous voulez mettre dans cette cellule : ");
-                            value = Solver.getInt(saisie);
-                        }
-
-                        Cell c_new = new Cell(x, y, value);
-                        grid.set(c_new, x, y);
-                        grid.setCellsToFill(grid.getCellsToFill() - 1);
-                        ctx.setStrategy(new DR0());
-                        ctx.solve(); //Actualise les cases qui doivent l'être par le nouvel ajout
-
-                        ctx.setStrategy(new DR3()); //On repasse sur la stratégie la plus forte
-                        ctx.solve();
                     }
+                    System.out.println();
+                    System.out.println("Entrez la valeur que vous voulez mettre dans cette cellule : ");
+                    int value = Solver.getInt(saisie);
+                    while (value < 1 || value > 9 || !grid.get(x, y).checkPossibleValue(value)) {
+                        System.out.println("La valeur doit être comprise entre 1 et 9 et être une valeur possible pour la cellule. Entrez la valeur que vous voulez mettre dans cette cellule : ");
+                        value = Solver.getInt(saisie);
+                    }
+
+                    Cell c_new = new Cell(x, y, value);
+                    grid.set(c_new, x, y);
+                    grid.setCellsToFill(grid.getCellsToFill() - 1);
+                    ctx.setStrategy(new DR0());
+                    ctx.solve(); //Actualise les cases qui doivent l'être par le nouvel ajout
+
+                    ctx.setStrategy(new DR3()); //On repasse sur la stratégie la plus forte
+                    ctx.solve();
+
+                    if(grid.isWrong()== true){
+                        System.err.println("Certaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
+                        System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
+                        grid.restore(memento);
+                        saisie.next();
+                     }
+                    else{
+                        memento = grid.makeSnapshot(); //On refait une copie pour le prochain reload
+                    }
+                    //}
                 }
                 saisie.close();
 
