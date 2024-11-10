@@ -2,6 +2,8 @@
 
 Programme conçu et implémenté par Adam Mir-sadjadi et Florent Bélot
 
+Documentation at https://admr-s.github.io/Sudoku_Solver/doc/html/index.html
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Commandes Terminal :
 
