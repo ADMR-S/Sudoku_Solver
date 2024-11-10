@@ -23,3 +23,5 @@ Commandes Terminal :
         doxygen Doxyfile
     
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ce solver entend résoudre des grilles de sudoku avec ou sans aide de l'utilisateur selon leur difficulté.
+Un rapport en pdf détaille les choix de conception du projet.
