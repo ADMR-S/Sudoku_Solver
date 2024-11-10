@@ -116,7 +116,7 @@ public class Solver {
                     if(grid.isWrong()== true){
                         System.err.println("HELLOCertaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
                         System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
-                        grid.restore(memento);
+                        memento  = grid.restore(memento);
                         saisie.next();
                     }
 
@@ -168,7 +168,7 @@ public class Solver {
                     if(grid.isWrong()== true){
                         System.err.println("Certaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
                         System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
-                        grid.restore(memento);
+                        memento = grid.restore(memento);
                         saisie.next();
                      }
                     else{

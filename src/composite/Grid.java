@@ -160,16 +160,14 @@ public class Grid implements Subscriber{
         return snap;
     }
 
-    public void restore(Memento memento){
+    public Memento restore(Memento memento){
         this.lines = memento.getLines();
         this.columns = memento.getColumns();
         this.squares = memento.getSquares();
         this.cellsToFill = memento.getCellsToFill();
         this.isWrong = false;
 
-        memento = this.makeSnapshot(); //On remplace l'ancienne copie par une nouvelle
-
-        return;
+        return this.makeSnapshot();//On remplace l'ancienne copie par une nouvelle
     }
 
     public void update(int nbPossibleValues){
