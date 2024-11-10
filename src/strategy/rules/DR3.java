@@ -5,6 +5,7 @@ import composite.cell.EmptyCell;
 import composite.composant.Column;
 import composite.composant.Line;
 import composite.composant.Square;
+import log.SudokuLogger;
 import strategy.Pile;
 
 import java.util.Arrays;
@@ -13,7 +14,7 @@ public class DR3 extends DeductionRule {
     //Paires nues : deux cases avec deux mêmes valeurs possibles dans une ligne, colonne ou carré
     //https://sudoku.com/fr/regles-du-sudoku/paires-nues/
     public boolean execut(CellBase c_in, Grid g) {
-        System.out.println("DR3 execut");
+        SudokuLogger.getLogger().info("DR3 execut");
         if (c_in instanceof EmptyCell cell && cell.numberPossibleValue() == 2) {
             int x = cell.getXpos();
             int y = cell.getYpos();
@@ -30,9 +31,6 @@ public class DR3 extends DeductionRule {
                 } else if (table[j] != 0) {
                     i_v2 = j;
                 }
-            }
-            if (i_v1 == -1 || i_v2 == -1) {
-                System.out.println("PROBLEME");
             }
             // Pour toutes les valeurs des cellules de la même ligne, colonne ou carré on vérifie si elles sont égales à celles de la cellule.
             // Puis si elles sont égales on retire ces valeurs des autres cellules.
@@ -104,13 +102,13 @@ public class DR3 extends DeductionRule {
             CellBase cell = pile.pop();
 
             if (this.execut(cell, grid)) {
-                System.out.println("DR3.");
+                SudokuLogger.getLogger().info("DR3.");
                 pile.pushAllRelated(cell, grid);
             } else if (dr1.execut(cell, grid)) {
-                System.out.println("DR1.");
+                SudokuLogger.getLogger().info("DR1.");
                 pile.pushAllRelated(cell, grid);
             } else if (dr2.execut(cell, grid)) {
-                System.out.println("DR2.");
+                SudokuLogger.getLogger().info("DR2.");
                 pile.pushAllRelated(cell, grid);
             }
         }

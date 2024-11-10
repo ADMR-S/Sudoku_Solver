@@ -3,6 +3,7 @@ import composite.*;
 import composite.cell.Cell;
 import composite.cell.CellBase;
 import composite.cell.EmptyCell;
+import log.SudokuLogger;
 import strategy.Pile;
 
 public class DR1 extends DeductionRule {
@@ -10,7 +11,7 @@ public class DR1 extends DeductionRule {
     // https://sudoku.com/fr/regles-du-sudoku/singletons-nus/
 
     public boolean execut(CellBase c, Grid g){
-        System.out.println("DR1 execut");
+        SudokuLogger.getLogger().info("DR1 execut");
         if (c instanceof EmptyCell cell) {
             int[] p = cell.getPossibleValues();
             int value = 0;
@@ -28,7 +29,7 @@ public class DR1 extends DeductionRule {
                 g.set(c_new, cell.getXpos(), cell.getYpos());
                 g.setCellsToFill(g.getCellsToFill() - 1);
                 DR0 r = new DR0();
-                System.out.println("DR0 dans DR1");
+                SudokuLogger.getLogger().info("DR0 dans DR1");
                 r.execut(c_new, g);
                 return true;
             }
@@ -42,7 +43,7 @@ public class DR1 extends DeductionRule {
             CellBase cell = pile.pop();
 
             if (execut(cell, grid)) {
-                System.out.println("DR1.");
+                SudokuLogger.getLogger().info("DR1.");
                 pile.pushAllRelated(cell, grid);
             }
         }

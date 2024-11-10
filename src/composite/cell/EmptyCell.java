@@ -1,5 +1,6 @@
 package composite.cell;
 import composite.Subscriber;
+import log.SudokuLogger;
 
 import java.util.ArrayList;
 
@@ -41,7 +42,7 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
      */
     public void removePossibleValue( int v) {
         possibleValues[v-1] = 0;
-        System.out.println("On retire la valeur : " + v + " à la cellule " + this.xpos + " " + this.ypos + " reste : " + numberPossibleValue() + " valeurs possibles");
+        SudokuLogger.getLogger().info("On retire la valeur : " + v + " à la cellule " + this.xpos + " " + this.ypos + " reste : " + numberPossibleValue() + " valeurs possibles");
         if(this.numberPossibleValue() == 0){
             notifySubscribersNoPossibleValue();
         }

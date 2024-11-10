@@ -6,6 +6,7 @@ import composite.cell.EmptyCell;
 import composite.composant.Column;
 import composite.composant.Line;
 import composite.composant.Square;
+import log.SudokuLogger;
 import strategy.Pile;
 
 //Egalement remplacer la cellule des lignes, colonnes et squares par cell en entré pour ne pas à avoir à le faire autre part ?
@@ -23,7 +24,8 @@ public class DR0 extends DeductionRule {
      * @return  boolean vrai si la règle est appliqué à la cellule c, faux sinon (donc si c n'est pas une cellule pleine).
      */
     public boolean execut(CellBase c_in, Grid g) {
-        System.out.println("DR0 execut");
+
+        SudokuLogger.getLogger().info("DR0 execut");
         if (c_in instanceof Cell cell) {
             //Récupère la ligne/colonne/carré associée à la cellule.
             Line l = g.getLine(cell.getYpos());
@@ -52,7 +54,7 @@ public class DR0 extends DeductionRule {
      */
     public void routine(Pile pile, Grid grid){//Routine : execution de DR0 pour chaque cellule remplie de la grille
         while (!pile.isEmpty()) {
-            System.out.println("DR0.");
+            SudokuLogger.getLogger().info("DR0.");
             CellBase cell = pile.pop();
             execut(cell, grid);
         }

@@ -1,5 +1,6 @@
 import composite.*;
 import composite.cell.Cell;
+import log.SudokuLogger;
 import strategy.Context;
 import strategy.rules.DR0;
 import strategy.rules.DR1;
@@ -11,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.logging.Level;
 
 //PROGRAMME ECRIT PAR FLORENT BELOT ET ADAM MIR-SADJADI
 
@@ -27,7 +29,6 @@ import java.util.Scanner;
 public class Solver {
 
     private static final boolean printToFile = false; //Change to true if you want to get the answer in a .txt file
-
     /**
      * MODELE DOC Doxygen (voir fonction main dans le html généré dans doc/)
      * Returns an Image object that can then be painted on the screen.
@@ -45,6 +46,7 @@ public class Solver {
      */
     public static void main(String[] args) throws FileNotFoundException {
         try {
+            SudokuLogger.getLogger().setLevel(Level.WARNING); // Mettre en Level.INFO pour voir les détails de l'exécution du solver
             for (int k = 0; k < args.length; k++) {//Chaque argument est un fichier .txt qui contient une grille
                 System.out.println("--------------------------------------");
                 System.out.println(args[k]);
@@ -104,7 +106,7 @@ public class Solver {
                 }
 
 
-                System.out.println("TRES DIFFICILE.____________________________________________________");
+                System.out.println("La grille est très difficile et nécessite l'intervention de l'utilisateur.");
 
                 Memento memento = grid.makeSnapshot();
 
@@ -113,7 +115,7 @@ public class Solver {
                 while (grid.getCellsToFill() > 0) {
 
                     if(grid.isWrong()== true){
-                        System.err.println("HELLOCertaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
+                        System.err.println("Certaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
                         System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
                         memento  = grid.restore(memento);
                         saisie.next();
@@ -228,4 +230,6 @@ public class Solver {
         }
         return;
     }
+
+
 }
