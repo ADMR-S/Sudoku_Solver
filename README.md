@@ -15,6 +15,9 @@ Commandes Terminal :
     -> Prend en argument autant de fichier que désiré
     -Ex :
         java -cp bin/ Solver ressources/grille_moyenne1.txt ressources/grille_tres_difficile.txt
+
+    -Exécuter (Sans compiler avec le .jar):
+        java -jar Sudoku_Solver-main.jar FILE...
     
     -Générer doc (idem, depuis dossier Sudoku_Solver):
         doxygen Doxyfile
