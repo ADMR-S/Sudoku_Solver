@@ -119,8 +119,10 @@ public class Solver {
 
                     int x;
                     int y;
-                    System.out.println("Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
+                    System.out.println("Entrez les coordonnées de la cellule vide que vous voulez remplir : ");
+                    System.out.println("\nSaisissez x : ");
                     x = Solver.getInt(saisie);
+                    System.out.println("\nSaisissez y : ");
                     y = Solver.getInt(saisie);
                     while ((0 > x || x > 8) || (0 > y || y > 8) || grid.get(x, y).getValue() != 0) {
                         System.err.println("Ces coordonnées ne corresponde pas à une cellule vide. Entrez les coordonnées de la cellule vide que vous voulez remplir (x y) : ");
@@ -162,7 +164,7 @@ public class Solver {
 
                     if(grid.isWrong()== true){
                         System.err.println("Certaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
-                        System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
+                        System.err.println("Appuyez sur Entrée pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C...");
                         memento = grid.restore(memento);
                         saisie.nextLine();
                      }
