@@ -1,4 +1,6 @@
 package composite.cell;
+import composite.*;
+import strategy.Visitor;
 
 public abstract class CellBase{ //Base pour les classes Cell et EmptyCell
     protected int xpos;
@@ -26,6 +28,7 @@ public abstract class CellBase{ //Base pour les classes Cell et EmptyCell
         return false;
     }
     public abstract CellBase getCopy();
+    public abstract boolean accept(Visitor v, Grid g);//Fonction pour activer les bonnes méthodes des visiteurs
 
     public String toString() {
         return "CellBase [xpos=" + xpos + ", ypos=" + ypos + "]";

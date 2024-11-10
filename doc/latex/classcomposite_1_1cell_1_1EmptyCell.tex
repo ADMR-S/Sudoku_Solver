@@ -1,0 +1,120 @@
+\doxysection{composite.\+cell.\+Empty\+Cell Class Reference}
+\hypertarget{classcomposite_1_1cell_1_1EmptyCell}{}\label{classcomposite_1_1cell_1_1EmptyCell}\index{composite.cell.EmptyCell@{composite.cell.EmptyCell}}
+Inheritance diagram for composite.\+cell.\+Empty\+Cell\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcomposite_1_1cell_1_1EmptyCell}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_a980f4ef3bfa5e8b3d3b03fec8fc23e9c}\label{classcomposite_1_1cell_1_1EmptyCell_a980f4ef3bfa5e8b3d3b03fec8fc23e9c} 
+{\bfseries Empty\+Cell} (int xpos, int ypos)
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell_a20027f90ba9c6470dc2df588953f2072}{get\+Possible\+Values}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un tableau indexé par valeur des valeurs possibles d\textquotesingle{}une cellule vide. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell_abf4ab53e181ba9be03e63567fa03cc70}{check\+Possible\+Value}} (int i)
+\item 
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_a21b426f11082e3037f176883486a6233}\label{classcomposite_1_1cell_1_1EmptyCell_a21b426f11082e3037f176883486a6233} 
+void {\bfseries remove\+Possible\+Value} (int v)
+\item 
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_a694dca62c94693081cad04aa2c139326}\label{classcomposite_1_1cell_1_1EmptyCell_a694dca62c94693081cad04aa2c139326} 
+int {\bfseries number\+Possible\+Value} ()
+\item 
+String \mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell_a575fa1089c34f34356b6c2374ee049f6}{to\+String}} ()
+\item 
+\mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell}{Empty\+Cell}} \mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell_ab40d233db34f12bfee012e185086e829}{get\+Copy}} ()
+\item 
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_aed2e6b985ca86ecaa4acf833c45bcc2e}\label{classcomposite_1_1cell_1_1EmptyCell_aed2e6b985ca86ecaa4acf833c45bcc2e} 
+void {\bfseries subscribe} (\mbox{\hyperlink{interfacecomposite_1_1Subscriber}{Subscriber}} s)
+\item 
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_ae249f034c000132b4b53f0c8dd947c78}\label{classcomposite_1_1cell_1_1EmptyCell_ae249f034c000132b4b53f0c8dd947c78} 
+void {\bfseries unsubscribe} (\mbox{\hyperlink{interfacecomposite_1_1Subscriber}{Subscriber}} s)
+\item 
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_a75ff3a05efbbb9c8f1b22cd4e44fbb9e}\label{classcomposite_1_1cell_1_1EmptyCell_a75ff3a05efbbb9c8f1b22cd4e44fbb9e} 
+void {\bfseries notify\+Subscribers\+No\+Possible\+Value} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Cell\+Base} (int xpos, int ypos)
+\item 
+int {\bfseries get\+Value} ()
+\item 
+int {\bfseries get\+Xpos} ()
+\item 
+void {\bfseries set\+Xpos} (int xpos)
+\item 
+int {\bfseries get\+Ypos} ()
+\item 
+void {\bfseries set\+Ypos} (int ypos)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_a5f16c22992c804ad19082fc03472c296}\label{classcomposite_1_1cell_1_1EmptyCell_a5f16c22992c804ad19082fc03472c296} 
+int\mbox{[}$\,$\mbox{]} {\bfseries possible\+Values}
+\begin{DoxyCompactList}\small\item\em Test de description d\textquotesingle{}un champ. \end{DoxyCompactList}\item 
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_a3efe4cd0efeeac33a3270fb86f3e29f4}\label{classcomposite_1_1cell_1_1EmptyCell_a3efe4cd0efeeac33a3270fb86f3e29f4} 
+Array\+List$<$ \mbox{\hyperlink{interfacecomposite_1_1Subscriber}{Subscriber}} $>$ {\bfseries subscribers}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries xpos}
+\item 
+int {\bfseries ypos}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_abf4ab53e181ba9be03e63567fa03cc70}\index{composite.cell.EmptyCell@{composite.cell.EmptyCell}!checkPossibleValue@{checkPossibleValue}}
+\index{checkPossibleValue@{checkPossibleValue}!composite.cell.EmptyCell@{composite.cell.EmptyCell}}
+\doxysubsubsection{\texorpdfstring{checkPossibleValue()}{checkPossibleValue()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1EmptyCell_abf4ab53e181ba9be03e63567fa03cc70} 
+boolean composite.\+cell.\+Empty\+Cell.\+check\+Possible\+Value (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}.
+
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_ab40d233db34f12bfee012e185086e829}\index{composite.cell.EmptyCell@{composite.cell.EmptyCell}!getCopy@{getCopy}}
+\index{getCopy@{getCopy}!composite.cell.EmptyCell@{composite.cell.EmptyCell}}
+\doxysubsubsection{\texorpdfstring{getCopy()}{getCopy()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1EmptyCell_ab40d233db34f12bfee012e185086e829} 
+\mbox{\hyperlink{classcomposite_1_1cell_1_1EmptyCell}{Empty\+Cell}} composite.\+cell.\+Empty\+Cell.\+get\+Copy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}.
+
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_a20027f90ba9c6470dc2df588953f2072}\index{composite.cell.EmptyCell@{composite.cell.EmptyCell}!getPossibleValues@{getPossibleValues}}
+\index{getPossibleValues@{getPossibleValues}!composite.cell.EmptyCell@{composite.cell.EmptyCell}}
+\doxysubsubsection{\texorpdfstring{getPossibleValues()}{getPossibleValues()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1EmptyCell_a20027f90ba9c6470dc2df588953f2072} 
+int\mbox{[}$\,$\mbox{]} composite.\+cell.\+Empty\+Cell.\+get\+Possible\+Values (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retourne un tableau indexé par valeur des valeurs possibles d\textquotesingle{}une cellule vide. 
+
+\begin{DoxyReturn}{Returns}
+int\mbox{[}\mbox{]} un tableau des valeurs possibles d\textquotesingle{}une cellule vide 
+\end{DoxyReturn}
+\Hypertarget{classcomposite_1_1cell_1_1EmptyCell_a575fa1089c34f34356b6c2374ee049f6}\index{composite.cell.EmptyCell@{composite.cell.EmptyCell}!toString@{toString}}
+\index{toString@{toString}!composite.cell.EmptyCell@{composite.cell.EmptyCell}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcomposite_1_1cell_1_1EmptyCell_a575fa1089c34f34356b6c2374ee049f6} 
+String composite.\+cell.\+Empty\+Cell.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{classcomposite_1_1cell_1_1CellBase}{composite.\+cell.\+Cell\+Base}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/composite/cell/Empty\+Cell.\+java\end{DoxyCompactItemize}

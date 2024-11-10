@@ -1,5 +1,6 @@
 package composite.cell;
-import composite.Subscriber;
+import composite.*;
+import strategy.Visitor;
 
 import java.util.ArrayList;
 
@@ -45,6 +46,11 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
     public String toString() {
         return "EmptyCell [xpos=" + getXpos() + ", ypos=" + getYpos() + ", possibleValues=" + java.util.Arrays.toString(possibleValues) + "]";
     }
+
+    public boolean accept(Visitor v, Grid grid){
+        return v.visitEmptyCell(this, grid);
+    }
+
     public EmptyCell getCopy(){
         EmptyCell emptyCellCopy = new EmptyCell(this.xpos, this.ypos);
         System.arraycopy(this.possibleValues, 0, emptyCellCopy.possibleValues, 0, 9);
