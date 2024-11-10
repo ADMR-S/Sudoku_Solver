@@ -7,6 +7,7 @@ public class DR1 extends DeductionRule {
     // https://sudoku.com/fr/regles-du-sudoku/singletons-nus/
 
     public boolean execut(CellBase c, Grid g){
+        System.out.println("DR1 execut");
         if (c instanceof EmptyCell cell) {
             int[] p = cell.getPossibleValues();
             int value = 0;
@@ -22,6 +23,7 @@ public class DR1 extends DeductionRule {
                 //System.out.println("Nouvelle cellule en " + cell.getXpos() + " " + cell.getYpos() + " avec la valeur " + value);
                 Cell c_new = new Cell(cell.getXpos(), cell.getYpos(), value);
                 DR0 r = new DR0();
+                System.out.println("DR0 dans DR1");
                 r.execut(c_new, g);
                 g.set(c_new, cell.getXpos(), cell.getYpos());
                 g.setCellsToFill(g.getCellsToFill() - 1);
@@ -37,7 +39,7 @@ public class DR1 extends DeductionRule {
             CellBase cell = pile.pop();
 
             if (execut(cell, grid)) {
-                //System.out.println("DR1.");
+                System.out.println("DR1.");
                 pile.pushAllRelated(cell, grid);
             }
         }

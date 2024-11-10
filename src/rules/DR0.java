@@ -11,6 +11,7 @@ public class DR0 extends DeductionRule {
     /*Règle de base qui, pour une cellule donnée, retire sa valeur
     des valeurs possibles des cellules de la même ligne/colonne/carré*/
     public boolean execut(CellBase c_in, Grid g) {
+        System.out.println("DR0 execut");
         if (c_in instanceof Cell cell) {
             //Récupère la ligne/colonne/carré associée à la cellule.
             Line l = g.getLine(cell.getYpos());
@@ -33,6 +34,7 @@ public class DR0 extends DeductionRule {
     }
     public void routine(Pile pile, Grid grid){//Routine : execution de DR0 pour chaque cellule remplie de la grille
         while (!pile.isEmpty()) {
+            System.out.println("DR0.");
             CellBase cell = pile.pop();
             execut(cell, grid);
         }

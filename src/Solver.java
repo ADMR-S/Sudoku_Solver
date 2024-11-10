@@ -12,14 +12,34 @@ import java.util.Arrays;
 
 //PROGRAMME ECRIT PAR FLORENT BELOT ET ADAM MIR-SADJADI
 
-//Idées (voir commentaires dans code):
-//Gérer crash si mauvaise entrée utilisateur (input mismatch). Ex : String au lieu de int
-//Essayer de faire gestion propre des erreurs (créer des exceptions, faire des try catch, print sur la sortie d'erreur...)
+//DERNIERES CHOSES A FAIRE ?
+//Mettre UML à jour
+//Commenter pour la doc
+//RESOUDRE BUG grile tres difficile reload de la grille
+//Implementer visiteur
+//Verifier gestion d'erreur partout
+//Cleaner code
+//restructurer packages ? (sous-repertoire memento dans composite par ex, renommer rules en strategy... GridSnapshot)
+//Implementer iterator (juste la fonction qui retourne lignes, carrés et colonnes, pas compliqué) et s'en servir dans le builder et la fonction makeSnapshot de Grid
+//Singleton pour pile / solver ?
 
 public class Solver {
 
-    //Transformer en singleton
-
+    /**
+     * MODELE DOC Doxygen (voir fonction main dans le html généré dans doc/)
+     * Returns an Image object that can then be painted on the screen.
+     * The url argument must specify an absolute <a href="#{@link}">{@link URL}</a>. The name
+     * argument is a specifier that is relative to the url argument.
+     * <p>
+     * This method always returns immediately, whether or not the
+     * image exists. When this applet attempts to draw the image on
+     * the screen, the data will be loaded. The graphics primitives
+     * that draw the image will incrementally paint on the screen.
+     *
+     * @param  args  an absolute URL giving the base location of the image
+     * @return      the image at the specified URL
+     * @see         Solver
+     */
     public static void main(String[] args) throws FileNotFoundException {
         try {
             for (int k = 0; k < args.length; k++) {//Chaque argument est un fichier .txt qui contient une grille
@@ -79,6 +99,12 @@ public class Solver {
                 //Implémenter la demande à l'utilisateur.
                 Scanner saisie = new Scanner(System.in);
                 while (grid.getCellsToFill() > 0) {
+                    if(grid.isWrong()== true){
+                        System.err.println("HELLOCertaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
+                        System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
+                        grid.restore(memento);
+                        saisie.next();
+                    }
 
                     System.out.println(grid);
 

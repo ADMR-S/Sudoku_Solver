@@ -18,8 +18,10 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
         return this.possibleValues[i-1] == i;
     }
     public void removePossibleValue( int v) {
+        System.out.println("On retire la valeur : " + v + " à la cellule " + this.xpos + " " + this.ypos + "reste : " + numberPossibleValue() + " valeurs possibles");
         possibleValues[v-1] = 0;
-        if(numberPossibleValue() == 0){
+        if(this.numberPossibleValue() == 0){
+            System.out.println("\n\nOn retire la valeur : " + v + " à la cellule " + this.xpos + " " + this.ypos + "reste : " + numberPossibleValue() + " valeurs possibles\n\n");
             notifySubscribersNoPossibleValue();
         }
     }
@@ -37,9 +39,8 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
     public EmptyCell getCopy(){
         EmptyCell emptyCellCopy = new EmptyCell(this.xpos, this.ypos);
         System.arraycopy(this.possibleValues, 0, emptyCellCopy.possibleValues, 0, 9);
-        ArrayList<Subscriber> subscribersCopy = new ArrayList<>();
-        for(int i=0; i<subscribers.size(); i++){
-            subscribersCopy.add(subscribers.get(i));
+        for(int i=0; i<this.subscribers.size(); i++){
+            emptyCellCopy.subscribe((this.subscribers.get(i)));
         }
         return emptyCellCopy;
     }

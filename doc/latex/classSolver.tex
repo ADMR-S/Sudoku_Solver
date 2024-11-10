@@ -1,0 +1,46 @@
+\doxysection{Solver Class Reference}
+\hypertarget{classSolver}{}\label{classSolver}\index{Solver@{Solver}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classSolver_ab02789b3f18bae50ced221dd213de85a}{main}} (String\mbox{[}$\,$\mbox{]} args)  throws File\+Not\+Found\+Exception 
+\begin{DoxyCompactList}\small\item\em Returns an Image object that can then be painted on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSolver_a02b98223f7ea1726b357c754637a4665}\label{classSolver_a02b98223f7ea1726b357c754637a4665} 
+static int {\bfseries get\+Int} (Scanner sc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSolver_ab02789b3f18bae50ced221dd213de85a}\index{Solver@{Solver}!main@{main}}
+\index{main@{main}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{classSolver_ab02789b3f18bae50ced221dd213de85a} 
+static void Solver.\+main (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{args}{}\end{DoxyParamCaption}) throws File\+Not\+Found\+Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns an Image object that can then be painted on the screen. 
+
+The url argument must specify an absolute \href{\#{@link}}{\texttt{ @javalink URL\}}}. The name argument is a specifier that is relative to the url argument. 
+
+This method always returns immediately, whether or not the image exists. When this applet attempts to draw the image on the screen, the data will be loaded. The graphics primitives that draw the image will incrementally paint on the screen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & an absolute URL giving the base location of the image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the image at the specified URL 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classSolver}{Solver} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Solver.\+java\end{DoxyCompactItemize}

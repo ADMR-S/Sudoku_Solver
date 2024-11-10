@@ -8,6 +8,7 @@ public class DR3 extends DeductionRule {
     //Paires nues : deux cases avec deux mêmes valeurs possibles dans une ligne, colonne ou carré
     //https://sudoku.com/fr/regles-du-sudoku/paires-nues/
     public boolean execut(CellBase c_in, Grid g) {
+        System.out.println("DR3 execut");
         if (c_in instanceof EmptyCell cell && cell.numberPossibleValue() == 2) {
             int x = cell.getXpos();
             int y = cell.getYpos();
@@ -98,13 +99,13 @@ public class DR3 extends DeductionRule {
             CellBase cell = pile.pop();
 
             if (execut(cell, grid)) {
-                //System.out.println("DR3.");
+                System.out.println("DR3.");
                 pile.pushAllRelated(cell, grid);
             } else if (dr1.execut(cell, grid)) {
-                //System.out.println("DR1.");
+                System.out.println("DR1.");
                 pile.pushAllRelated(cell, grid);
             } else if (dr2.execut(cell, grid)) {
-                //System.out.println("DR2.");
+                System.out.println("DR2.");
                 pile.pushAllRelated(cell, grid);
             }
         }

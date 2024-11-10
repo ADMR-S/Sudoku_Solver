@@ -1,5 +1,6 @@
 package composite;
 
+//PATTERN MEMENTO
 public interface Memento {
     public Line[] getLines();
 
