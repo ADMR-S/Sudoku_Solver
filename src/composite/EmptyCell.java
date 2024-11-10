@@ -18,10 +18,9 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
         return this.possibleValues[i-1] == i;
     }
     public void removePossibleValue( int v) {
-        System.out.println("On retire la valeur : " + v + " à la cellule " + this.xpos + " " + this.ypos + "reste : " + numberPossibleValue() + " valeurs possibles");
         possibleValues[v-1] = 0;
+        System.out.println("On retire la valeur : " + v + " à la cellule " + this.xpos + " " + this.ypos + " reste : " + numberPossibleValue() + " valeurs possibles");
         if(this.numberPossibleValue() == 0){
-            System.out.println("\n\nOn retire la valeur : " + v + " à la cellule " + this.xpos + " " + this.ypos + "reste : " + numberPossibleValue() + " valeurs possibles\n\n");
             notifySubscribersNoPossibleValue();
         }
     }
@@ -39,8 +38,8 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
     public EmptyCell getCopy(){
         EmptyCell emptyCellCopy = new EmptyCell(this.xpos, this.ypos);
         System.arraycopy(this.possibleValues, 0, emptyCellCopy.possibleValues, 0, 9);
-        for(int i=0; i<this.subscribers.size(); i++){
-            emptyCellCopy.subscribe((this.subscribers.get(i)));
+        for (Subscriber subscriber : this.subscribers) {
+            emptyCellCopy.subscribe(subscriber);
         }
         return emptyCellCopy;
     }
@@ -51,7 +50,7 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
         this.subscribers.remove(s);
     }
     public void notifySubscribersNoPossibleValue(){
-        for(int i = 0;i<subscribers.size();i++){
+        for (int i = 0;i<subscribers.size();i++){
             subscribers.get(i).update(0);
         }
     }

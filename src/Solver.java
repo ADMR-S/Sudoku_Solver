@@ -41,6 +41,7 @@ public class Solver {
      * @see         Solver
      */
     public static void main(String[] args) throws FileNotFoundException {
+        args = new String[]{"/home/florent/Documents/Master/Software_eng/Sudoku_Solver-main/ressources/grille_tres_difficile1.txt"};
         try {
             for (int k = 0; k < args.length; k++) {//Chaque argument est un fichier .txt qui contient une grille
                 System.out.println("--------------------------------------");
@@ -92,13 +93,14 @@ public class Solver {
                 }
 
 
-                System.out.println("TRES DIFFICILE.");
+                System.out.println("TRES DIFFICILE.____________________________________________________");
 
                 Memento memento = grid.makeSnapshot();
 
                 //Implémenter la demande à l'utilisateur.
                 Scanner saisie = new Scanner(System.in);
                 while (grid.getCellsToFill() > 0) {
+
                     if(grid.isWrong()== true){
                         System.err.println("HELLOCertaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
                         System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
@@ -118,15 +120,15 @@ public class Solver {
                         x = saisie.nextInt();
                         y = saisie.nextInt();
                     }
-/*
-                    if (grid.get(x, y) instanceof EmptyCell cell && cell.numberPossibleValue() == 0) {
+
+                    /*if (grid.get(x, y) instanceof EmptyCell cell && cell.numberPossibleValue() == 0) {
                         System.out.println("isWrong : " + grid.isWrong());
                         System.err.println("Cette cellule n'a pas de valeur possible, une mauvaise valeur à été rentré veuillez relancer le solver.");
                         System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la première saisie manuelle ou quittez le programme avec Ctrl+C.");
                         grid.restore(memento);
                         saisie.next();
-                    }
-*/
+                    }*/
+
                     //else {
                     System.out.print("Les valeurs possible pour cette cellule sont : ");
                     for (int i = 0; i < 9; i++) {

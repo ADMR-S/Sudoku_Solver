@@ -158,7 +158,6 @@ public class Grid implements Subscriber{
         if(nbPossibleValues==0){
             this.isWrong = true;
         }
-        return;
     }
 
     public boolean isWrong(){
