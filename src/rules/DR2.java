@@ -42,11 +42,11 @@ public class DR2 extends DeductionRule{
                     if (correct_line || correct_column || correct_square) {
                         //System.out.println("Nouvelle cellule en " + x + " " + y + " avec la valeur " + value);
                         Cell c_new = new Cell(x, y, value);
+                        g.set(c_new, x, y);
+                        g.setCellsToFill(g.getCellsToFill() - 1);
                         DR0 r = new DR0();
                         System.out.println("DR0 dans DR2 execut");
                         r.execut(c_new, g);
-                        g.set(c_new, x, y);
-                        g.setCellsToFill(g.getCellsToFill() - 1);
                         return true;
                     }
                 }

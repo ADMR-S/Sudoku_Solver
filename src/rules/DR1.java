@@ -22,11 +22,11 @@ public class DR1 extends DeductionRule {
             if (value != 0) {
                 //System.out.println("Nouvelle cellule en " + cell.getXpos() + " " + cell.getYpos() + " avec la valeur " + value);
                 Cell c_new = new Cell(cell.getXpos(), cell.getYpos(), value);
+                g.set(c_new, cell.getXpos(), cell.getYpos());
+                g.setCellsToFill(g.getCellsToFill() - 1);
                 DR0 r = new DR0();
                 System.out.println("DR0 dans DR1");
                 r.execut(c_new, g);
-                g.set(c_new, cell.getXpos(), cell.getYpos());
-                g.setCellsToFill(g.getCellsToFill() - 1);
                 return true;
             }
         }

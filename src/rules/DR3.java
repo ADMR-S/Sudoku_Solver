@@ -98,7 +98,7 @@ public class DR3 extends DeductionRule {
         while (!pile.isEmpty()) {
             CellBase cell = pile.pop();
 
-            if (execut(cell, grid)) {
+            if (this.execut(cell, grid)) {
                 System.out.println("DR3.");
                 pile.pushAllRelated(cell, grid);
             } else if (dr1.execut(cell, grid)) {
