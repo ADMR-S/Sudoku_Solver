@@ -19,5 +19,6 @@ var searchData=
   ['getvalue_16',['getValue',['../classcomposite_1_1cell_1_1Cell.html#a39838f1986ce4acec3075a929f07af5c',1,'composite.cell.Cell.getValue()'],['../classcomposite_1_1cell_1_1CellBase.html#abd6c277c31869dbfd16a4573a178bc6e',1,'composite.cell.CellBase.getValue()']]],
   ['getxpos_17',['getXpos',['../classcomposite_1_1cell_1_1CellBase.html#ad47938ad8591a35c6428575a9c0d8ea6',1,'composite::cell::CellBase']]],
   ['getypos_18',['getYpos',['../classcomposite_1_1cell_1_1CellBase.html#ad70368a11f4f32da34a581d97552f0a9',1,'composite::cell::CellBase']]],
-  ['grid_19',['Grid',['../classcomposite_1_1Grid.html',1,'composite']]]
+  ['grid_19',['Grid',['../classcomposite_1_1Grid.html',1,'composite']]],
+  ['grid_20',['grid',['../classstrategy_1_1Context.html#a242e06a4b9916c9a179be5f654ea6658',1,'strategy::Context']]]
 ];

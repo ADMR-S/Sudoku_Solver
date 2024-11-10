@@ -8,6 +8,7 @@ import composite.composant.Square;
 
 
 public class Pile {
+
     private CellBase[] stack;
     private int size;
     private int capacity;

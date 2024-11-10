@@ -240,6 +240,11 @@ public class Grid implements Subscriber{
         return true;
     }
 
+    /**
+     * Fonction du pattern memento qui crée une copie de l'état de la grille à l'instant t
+     *
+     * @return  Snapshot La copie de l'état de la grille
+     */
     public Snapshot makeSnapshot(){
         Line[] linesCopy = new Line[9];
         Column[] columnsCopy = new Column[9];
@@ -263,6 +268,12 @@ public class Grid implements Subscriber{
         return snap;
     }
 
+    /**
+     * Fonction du pattern memento qui rappelle un état précédent de la grille et en recrée une copie
+     *
+     * @param  memento  Une sauvegarde précédente de l'état de la grille
+     * @return  Memento  Une nouvelle sauvegarde pour remplacer la précédente
+     */
     public Memento restore(Memento memento){
         this.lines = memento.getLines();
         this.columns = memento.getColumns();
@@ -273,16 +284,29 @@ public class Grid implements Subscriber{
         return this.makeSnapshot();//On remplace l'ancienne copie par une nouvelle
     }
 
+    /**
+     * Fonction d'actualisation du pattern Observer pour prendre en compte les notifications reçues
+     *
+     * @param  nbPossibleValues  Le nombre de valeurs possibles restantes à la cellule qui envoie la notification
+     */
     public void update(int nbPossibleValues){
         if(nbPossibleValues==0){
             this.isWrong = true;
         }
     }
 
+    /**
+     * Getter pour le champ isWrong qui tracke si une erreur a été commise
+     * @return boolean Le champ isWrong
+     */
     public boolean isWrong(){
         return this.isWrong;
     }
 
+    /**
+     * Setter pour le champ isWrong qui tracke si une erreur a été commise
+     * @return boolean Le champ isWrong
+     */
     public void setIsWrong(boolean wrong) {
         isWrong = wrong;
     }

@@ -6,9 +6,12 @@ import java.util.ArrayList;
 
 public class EmptyCell extends CellBase{//Représente une cellule vide dont on ne connaît pas encore la valeur
     /**
-     * Test de description d'un champ
+     * Valeurs possibles restantes à la cellule
      */
     private int[] possibleValues;
+    /**
+     * Liste d'abonnés (pattern Observer) à notifier lorsqu'un évènement survient
+     */
     private ArrayList<Subscriber> subscribers;
 
     public EmptyCell(int xpos, int ypos) {
@@ -103,7 +106,7 @@ public class EmptyCell extends CellBase{//Représente une cellule vide dont on n
     }
 
     /**
-     * Notifie les subscribers que la cellule a été remplie
+     * Notifie les subscribers que la cellule n'a plus de valeur possible
      *
      */
     public void notifySubscribersNoPossibleValue(){

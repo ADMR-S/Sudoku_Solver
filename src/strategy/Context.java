@@ -4,7 +4,13 @@ import strategy.rules.DR0;
 import strategy.rules.DeductionRule;
 
 public class Context{
+    /**
+     * La stratégie actuelle utilisée par le context
+     */
     private DeductionRule strategy;
+    /**
+     * La grille de jeu
+     */
     private Grid grid;
 
     /**
@@ -34,6 +40,9 @@ public class Context{
     }
 
 
+    /**
+     * Fonction principale de résolution qui appelle la stratégie actuelle sur la pile remplie de manière appropriée
+     */
     public void solve(){
         Pile p;
         if (strategy instanceof DR0){

@@ -30,19 +30,9 @@ public class Solver {
 
     private static final boolean printToFile = false; //Change to true if you want to get the answer in a .txt file
     /**
-     * MODELE DOC Doxygen (voir fonction main dans le html généré dans doc/)
-     * Returns an Image object that can then be painted on the screen.
-     * The url argument must specify an absolute <a href="#{@link}">{@link URL}</a>. The name
-     * argument is a specifier that is relative to the url argument.
-     * <p>
-     * This method always returns immediately, whether or not the
-     * image exists. When this applet attempts to draw the image on
-     * the screen, the data will be loaded. The graphics primitives
-     * that draw the image will incrementally paint on the screen.
+     * Fonction principale du problème qui résout les grilles contenues dans les fichiers passée en arguments
      *
-     * @param  args  an absolute URL giving the base location of the image
-     * @return      the image at the specified URL
-     * @see         Solver
+     * @param  args Un tableau d'URL relatives ou absolues vers les fichiers contenant les grilles à résoudre
      */
     public static void main(String[] args) throws FileNotFoundException {
         try {

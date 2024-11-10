@@ -6,7 +6,7 @@ import strategy.Pile;
 public abstract class DeductionRule {
 
     /**
-     * Retourne un boolean, vrais si la règle est appliqué à la cellule c, faux sinon.
+     * Retourne un boolean, vrai si la règle est effectivement appliquée à la cellule c, faux sinon.
      *
      * @param c CellBase la cellule à tester
      * @param g Grid la grille de jeu

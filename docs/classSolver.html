@@ -96,7 +96,7 @@ $(function(){ initResizable(false); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab02789b3f18bae50ced221dd213de85a" id="r_ab02789b3f18bae50ced221dd213de85a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab02789b3f18bae50ced221dd213de85a">main</a> (String[] args)  throws FileNotFoundException </td></tr>
-<tr class="memdesc:ab02789b3f18bae50ced221dd213de85a"><td class="mdescLeft">&#160;</td><td class="mdescRight">MODELE DOC Doxygen (voir fonction main dans le html généré dans doc/) Returns an Image object that can then be painted on the screen.  <br /></td></tr>
+<tr class="memdesc:ab02789b3f18bae50ced221dd213de85a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale du problème qui résout les grilles contenues dans les fichiers passée en arguments.  <br /></td></tr>
 <tr class="separator:ab02789b3f18bae50ced221dd213de85a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
@@ -172,17 +172,13 @@ static final boolean&#160;</td><td class="memItemRight" valign="bottom"><b>print
 </table>
 </div><div class="memdoc">
 
-<p>MODELE DOC Doxygen (voir fonction main dans le html généré dans doc/) Returns an Image object that can then be painted on the screen. </p>
-<p>The url argument must specify an absolute <a href="#{@link}">@javalink URL}</a>. The name argument is a specifier that is relative to the url argument. </p>
-<p>This method always returns immediately, whether or not the image exists. When this applet attempts to draw the image on the screen, the data will be loaded. The graphics primitives that draw the image will incrementally paint on the screen.</p>
+<p>Fonction principale du problème qui résout les grilles contenues dans les fichiers passée en arguments. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">args</td><td>an absolute URL giving the base location of the image </td></tr>
+    <tr><td class="paramname">args</td><td>Un tableau d'URL relatives ou absolues vers les fichiers contenant les grilles à résoudre </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the image at the specified URL </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSolver.html">Solver</a> </dd></dl>
 
 </div>
 </div>
