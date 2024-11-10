@@ -22,6 +22,7 @@ import java.util.Scanner;
 //Cleaner code
 //Passer tableau valeurs possibles en tableau de booléens
 //Mettre doc en ligne
+//Rendre le README propre
 
 public class Solver {
 
