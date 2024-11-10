@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tocsv_0',['toCSV',['../classcomposite_1_1Grid.html#a414a2298fb43ba845989e582324af68e',1,'composite::Grid']]],
-  ['tostring_1',['toString',['../classcomposite_1_1Grid.html#aeef72f1550db4caaf0c0291d4d26d299',1,'composite::Grid']]]
+  ['head_0',['head',['../classstrategy_1_1Pile.html#a5fc87021e97cc4d418bcede880c1b204',1,'strategy::Pile']]]
 ];
