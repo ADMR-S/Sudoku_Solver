@@ -164,7 +164,7 @@ public class Solver {
                         System.err.println("Certaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
                         System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
                         memento = grid.restore(memento);
-                        saisie.next();
+                        saisie.nextLine();
                      }
                     else{
                         memento = grid.makeSnapshot(); //On refait une copie pour le prochain reload
@@ -202,7 +202,9 @@ public class Solver {
             System.out.println("Veuillez entrer un entier.");
             sc.next();
         }
-        return sc.nextInt();
+        int r = sc.nextInt();
+        sc.nextLine(); // Pour retirer le retour à la ligne residuel après le nextInt.
+        return r;
     }
     private static void printSolutionToFile(String sourceName, Grid grid){
         try {
