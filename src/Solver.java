@@ -114,13 +114,7 @@ public class Solver {
                 Scanner saisie = new Scanner(System.in);
                 while (grid.getCellsToFill() > 0) {
 
-                    if(grid.isWrong()== true){
-                        System.err.println("Certaines cellules vides n'ont plus de valeur possible, une mauvaise valeur à été rentrée.");
-                        System.err.println("Appuyez sur une touche pour recharger l'état de la grille avant la denière saisie manuelle ou quittez le programme avec Ctrl+C.");
-                        memento  = grid.restore(memento);
-                        saisie.next();
-                    }
-
+                    assert (!grid.isWrong());
                     System.out.println(grid);
 
                     int x;
